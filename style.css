@@ -2634,3 +2634,15 @@ footer {
   margin-bottom: 0.5rem;
 }
 
+
+/* ===== Pro Peach: curved edges everywhere (owner preference 2026-10-11) ===== */
+.btn-primary,.btn-outline,.btn-outline--dark,.btn-outline-light,.nav-book-btn,.mobile-menu-book,.nav-mobile-call,
+.construction-call-btn,.construction-hero-cta,.process-slide-cta,.process-slide-cta--featured,.faq-preview-cta,
+.sa-cta,.service-cta,.faq-cat-btn,.services-tab,.subnav-tab,.reviews-nav-btn,.sa-badge,.service-badge,.footer-badge{border-radius:999px!important}
+.review-card,.svc-card,.highlight-item,.faq-teaser-item,.faq-accordion-item,.faq-group,.accordion-item,.sa-item,
+.services-accordion,.cta-inner,.construction-cta,.faq-preview-inner,.booking-section .container,.img-banner-inner{border-radius:22px!important;overflow:hidden}
+.accordion-button,.faq-accordion-q,.faq-group-toggle{border-radius:16px!important}
+.reviews-utah-img,.services-3col-cards img,.svc-card img,section img:not(.logo):not(.hero-logo):not(.footer-logo):not([class*=icon]):not([class*=avatar]):not(.logoreview),video{border-radius:22px}
+.dropdown-menu{border-radius:16px!important;overflow:hidden}
+.dropdown-item{border-radius:10px}
+input,select,textarea{border-radius:12px!important}
