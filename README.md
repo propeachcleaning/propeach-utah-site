@@ -17,3 +17,4 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 - 2026-10-11: Cross-linking: footer "Also serving metro Atlanta, GA -> propeachcleaning.com" on every page (nav "Also in ATL" already existed). The Atlanta site links back to Utah (header Service Areas + footer + schema).
 - 2026-10-11: Curved edges everywhere (pill buttons/tabs, 22px cards, rounded images/video) per owner preference.
 - 2026-10-11: How It Works step 3: removed 'we guarantee your satisfaction every time' -> 24-hour free touch-up wording.
+- 2026-10-11: Replaced the AI-generated cleaner image/video under 'Our Cleans' with the Pro Peach logomark (owner didn't like the fake cleaner). Deleted images/cleaner.jpg and cleaner.mp4.

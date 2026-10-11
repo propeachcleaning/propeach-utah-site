@@ -2646,3 +2646,5 @@ footer {
 .dropdown-menu{border-radius:16px!important;overflow:hidden}
 .dropdown-item{border-radius:10px}
 input,select,textarea{border-radius:12px!important}
+/* Brand logomark in "Our Cleans" (replaced AI cleaner image 2026-10-11) */
+.services-logomark--brand{width:min(300px,80%)!important;margin:auto 0 0 0!important;opacity:.95;filter:drop-shadow(0 10px 24px rgba(0,0,0,.12));border-radius:0!important}
