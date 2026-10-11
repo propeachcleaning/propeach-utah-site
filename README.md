@@ -18,3 +18,4 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 - 2026-10-11: Curved edges everywhere (pill buttons/tabs, 22px cards, rounded images/video) per owner preference.
 - 2026-10-11: How It Works step 3: removed 'we guarantee your satisfaction every time' -> 24-hour free touch-up wording.
 - 2026-10-11: Replaced the AI-generated cleaner image/video under 'Our Cleans' with the Pro Peach logomark (owner didn't like the fake cleaner). Deleted images/cleaner.jpg and cleaner.mp4.
+- 2026-10-11: Business name standardized to 'Pro Peach Cleaning' everywhere (was 'ProPeach Cleaning Utah' in alt text/copyright/schema). Legal name 'Pro Peach Cleaning, LLC' only in copyright/legal. Customer review quotes left verbatim.
