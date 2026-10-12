@@ -1,7 +1,7 @@
 """Content for Pro Peach Cleaning – Salt Lake Valley location & service pages.
 Only verified company facts (owner-confirmed 2026-10-11): background-checked, bring own supplies,
 eco-friendly products, bonded & insured, women-/veteran-/Latino-owned, 24-hour free touch-up,
-open 7 days 8 AM–8 PM, (470) 412-9977, online booking. Prices = Pro Peach BookingKoala starting prices."""
+open 7 days 8 AM–8 PM, (385) 217-9244, online booking. Prices = Pro Peach BookingKoala starting prices."""
 
 BOOK = "https://propeachcleaning.bookingkoala.com/booknow"
 PRICES = [ # (service, from, note)
@@ -17,7 +17,7 @@ CITIES = {
   title="House Cleaning Salt Lake City, UT | Pro Peach Cleaning",
   desc="House cleaning in Salt Lake City, UT: standard, deep, move-out & Airbnb cleaning. Background-checked, eco-friendly cleaners. Book online.",
   h1="House Cleaning Services in Salt Lake City, UT",
-  answer="Pro Peach Cleaning is a women-, veteran- and Latino-owned house cleaning company serving Salt Lake City, Utah. We offer standard (recurring) cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring their own eco-friendly supplies, and every clean is backed by a 24-hour free touch-up. Book online in minutes or call or text (470) 412-9977, 7 days a week, 8 AM to 8 PM.",
+  answer="Pro Peach Cleaning is a women-, veteran- and Latino-owned house cleaning company serving Salt Lake City, Utah. We offer standard (recurring) cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring their own eco-friendly supplies, and every clean is backed by a 24-hour free touch-up. Book online in minutes or call or text (385) 217-9244, 7 days a week, 8 AM to 8 PM.",
   hoods=["Downtown Salt Lake City","The Avenues","Capitol Hill","Federal Heights","East Bench","9th and 9th","Liberty Wells","Central City","Sugar House","Rose Park","Glendale","Marmalade District"],
   local=[
    ("Cleaning for Salt Lake City homes, condos and apartments",
@@ -28,12 +28,12 @@ CITIES = {
     "Mineral-heavy water is common across the Salt Lake Valley, and it shows up as cloudy glass shower doors, spotted faucets and chalky tile grout. We pay extra attention to bathroom fixtures, shower glass and kitchen sinks so they shine instead of spot."),
   ],
   faqs=[
-   ("How much does house cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much does house cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do your Salt Lake City cleaners bring their own supplies?","Yes. Our cleaners arrive with their own eco-friendly cleaning products and equipment, so you don't need to provide anything."),
    ("Are your cleaners background-checked and insured?","Yes. Every Pro Peach cleaner passes a background check, and Pro Peach Cleaning is licensed, bonded and insured."),
    ("What if something gets missed?","Every clean is backed by our 24-hour free touch-up. If anything on the checklist was missed, let us know within 24 hours and we'll come back and take care of it at no charge."),
    ("Which Salt Lake City neighborhoods do you serve?","We clean homes across Salt Lake City, including Downtown, The Avenues, Capitol Hill, Federal Heights, the East Bench, 9th and 9th, Liberty Wells, Sugar House, Rose Park and Glendale, plus nearby Millcreek, Holladay, Murray, Cottonwood Heights and South Salt Lake."),
-   ("How do I book a house cleaning in Salt Lake City?","Book online in about a minute at propeachcleaning.bookingkoala.com, or call or text (470) 412-9977. We're available 7 days a week from 8 AM to 8 PM."),
+   ("How do I book a house cleaning in Salt Lake City?","Book online in about a minute at propeachcleaning.bookingkoala.com, or call or text (385) 217-9244. We're available 7 days a week from 8 AM to 8 PM."),
   ],
   near=["millcreek","sugar-house","south-salt-lake","holladay","murray"],
   geo=(40.7608,-111.8910)),
@@ -42,7 +42,7 @@ CITIES = {
   title="House Cleaning Millcreek, UT | Pro Peach Cleaning",
   desc="House cleaning in Millcreek, UT: recurring, deep, move-out & Airbnb cleaning by background-checked, eco-friendly pros. 24-hour free touch-up.",
   h1="House Cleaning Services in Millcreek, UT",
-  answer="Pro Peach Cleaning provides house cleaning in Millcreek, Utah, including recurring standard cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring eco-friendly supplies, and every visit is backed by a 24-hour free touch-up. Book online or call or text (470) 412-9977.",
+  answer="Pro Peach Cleaning provides house cleaning in Millcreek, Utah, including recurring standard cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring eco-friendly supplies, and every visit is backed by a 24-hour free touch-up. Book online or call or text (385) 217-9244.",
   hoods=["East Millcreek","Canyon Rim","Olympus","Millcreek Common area","Upper Millcreek","Brickyard area"],
   local=[
    ("Millcreek homes, cleaned the way you like them",
@@ -53,7 +53,7 @@ CITIES = {
     "Weekly, biweekly or monthly, pick what fits your household and we'll keep the same high standard every visit. Need a one-time reset first? Start with a deep clean."),
   ],
   faqs=[
-   ("How much is house cleaning in Millcreek, UT?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much is house cleaning in Millcreek, UT?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do you offer recurring cleaning in Millcreek?","Yes. Choose weekly, biweekly or monthly standard cleaning, or book a one-time deep clean."),
    ("Are Pro Peach cleaners background-checked?","Yes. Every cleaner passes a background check, and Pro Peach Cleaning is licensed, bonded and insured."),
    ("Do you use eco-friendly products?","Yes. We bring our own eco-friendly cleaning products and equipment to every Millcreek home."),
@@ -77,11 +77,11 @@ CITIES = {
     "Getting ready for holidays or family visits? Book a deep clean before guests arrive and a standard clean after they leave."),
   ],
   faqs=[
-   ("How much does a house cleaning cost in Holladay?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much does a house cleaning cost in Holladay?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Can you clean large homes in Holladay?","Yes. Pricing scales with square footage, and we schedule the right amount of time and cleaners for larger homes."),
    ("Are you insured?","Yes. Pro Peach Cleaning is licensed, bonded and insured, and every cleaner is background-checked."),
    ("Do I need to provide supplies?","No. We bring our own eco-friendly products and equipment."),
-   ("When are you available?","We book cleanings 7 days a week from 8 AM to 8 PM. Book online or call or text (470) 412-9977."),
+   ("When are you available?","We book cleanings 7 days a week from 8 AM to 8 PM. Book online or call or text (385) 217-9244."),
   ],
   near=["millcreek","cottonwood-heights","murray","salt-lake-city","sugar-house"],
   geo=(40.6688,-111.8247)),
@@ -90,7 +90,7 @@ CITIES = {
   title="House Cleaning Murray, UT | Pro Peach Cleaning",
   desc="House cleaning in Murray, UT. Recurring, deep, move-out and Airbnb cleaning by background-checked, eco-friendly cleaners. 24-hour free touch-up.",
   h1="House Cleaning Services in Murray, UT",
-  answer="Pro Peach Cleaning serves Murray, Utah with recurring standard cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring eco-friendly supplies, and every clean is backed by a 24-hour free touch-up. Book online or call or text (470) 412-9977.",
+  answer="Pro Peach Cleaning serves Murray, Utah with recurring standard cleaning, deep cleaning, move-in/move-out cleaning and Airbnb turnovers. Our background-checked, licensed, bonded and insured cleaners bring eco-friendly supplies, and every clean is backed by a 24-hour free touch-up. Book online or call or text (385) 217-9244.",
   hoods=["Murray Park area","Fashion Place area","Downtown Murray","East Murray","Murray North","Vine Street area"],
   local=[
    ("Central-valley convenience",
@@ -101,11 +101,11 @@ CITIES = {
     "Moving in or out of a Murray apartment or home? Our move-out cleaning covers inside cabinets, appliances, baseboards and bathrooms so the place is ready for inspection or the next resident."),
   ],
   faqs=[
-   ("What does house cleaning cost in Murray, UT?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("What does house cleaning cost in Murray, UT?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do you do move-out cleaning in Murray?","Yes. Our move-in/move-out cleaning covers inside cabinets, appliances, baseboards, bathrooms and floors in an empty home."),
    ("Are your cleaners vetted?","Yes. Every cleaner passes a background check, and we're licensed, bonded and insured."),
    ("Do you offer a guarantee?","Every clean is backed by our 24-hour free touch-up for anything on the checklist that was missed."),
-   ("How do I schedule?","Book online in minutes or call or text (470) 412-9977, 7 days a week, 8 AM to 8 PM."),
+   ("How do I schedule?","Book online in minutes or call or text (385) 217-9244, 7 days a week, 8 AM to 8 PM."),
   ],
   near=["holladay","millcreek","south-salt-lake","cottonwood-heights","salt-lake-city"],
   geo=(40.6669,-111.8880)),
@@ -125,7 +125,7 @@ CITIES = {
     "Keep your home guest-ready year-round with weekly, biweekly or monthly cleaning, and book a deep clean at the start of ski season and again in spring."),
   ],
   faqs=[
-   ("How much does cleaning cost in Cottonwood Heights?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much does cleaning cost in Cottonwood Heights?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do you clean ski rentals and Airbnbs?","Yes. Airbnb and vacation-rental turnovers are timed between guest checkout and check-in."),
    ("Do you bring supplies?","Yes. We bring our own eco-friendly cleaning products and equipment."),
    ("Are you licensed, bonded and insured?","Yes. Pro Peach Cleaning is licensed, bonded and insured, and every cleaner is background-checked."),
@@ -149,11 +149,11 @@ CITIES = {
     "Busy professionals and families in Sugar House book recurring cleans so they can spend weekends at Sugar House Park instead of scrubbing bathrooms."),
   ],
   faqs=[
-   ("How much is house cleaning in Sugar House?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much is house cleaning in Sugar House?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do you clean apartments and condos in Sugar House?","Yes. We clean apartments, condos, townhomes and single-family homes."),
    ("Do you do move-out cleaning for renters?","Yes. Our move-out cleaning covers inside cabinets, appliances, bathrooms, baseboards and floors."),
    ("Are your cleaners background-checked?","Yes, and Pro Peach Cleaning is licensed, bonded and insured."),
-   ("How do I book?","Book online in minutes or call or text (470) 412-9977, 7 days a week, 8 AM to 8 PM."),
+   ("How do I book?","Book online in minutes or call or text (385) 217-9244, 7 days a week, 8 AM to 8 PM."),
   ],
   near=["salt-lake-city","millcreek","south-salt-lake","holladay","murray"],
   geo=(40.7230,-111.8590)),
@@ -173,7 +173,7 @@ CITIES = {
     "With quick access to downtown Salt Lake City, South Salt Lake is popular with short-term rental hosts. Our Airbnb turnovers keep listings guest-ready between stays."),
   ],
   faqs=[
-   ("How much does apartment cleaning cost in South Salt Lake?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),
+   ("How much does apartment cleaning cost in South Salt Lake?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),
    ("Do you clean Airbnbs in South Salt Lake?","Yes. We turn over Airbnb and vacation rentals between guest checkout and check-in."),
    ("Do you bring your own supplies?","Yes. We bring eco-friendly products and all equipment."),
    ("Are you insured?","Yes. Pro Peach Cleaning is licensed, bonded and insured, and every cleaner is background-checked."),
@@ -193,7 +193,7 @@ SERVICES = {
   answer="Pro Peach Cleaning offers deep cleaning in Salt Lake City and the surrounding Salt Lake Valley. A deep clean goes beyond a standard clean: baseboards, door frames, vents, light switches, cabinet fronts, appliance exteriors, shower grout and hard-water buildup. Our background-checked, licensed, bonded and insured cleaners bring eco-friendly supplies, and every clean is backed by a 24-hour free touch-up.",
   included=["Everything in a standard clean","Baseboards, door frames and trim hand-wiped","Vents, light switches and outlet covers","Cabinet and drawer fronts","Appliance exteriors and microwave interior","Shower glass, tile and grout scrubbed; hard-water spots treated","Ceiling fans and high dusting","Window sills and tracks"],
   when=[("First clean with Pro Peach","Start recurring service with a deep clean so every visit after that maintains a fully reset home."),("Seasonal reset","Salt Lake Valley winters keep homes closed up for weeks; a spring deep clean clears out dust, salt residue and buildup."),("Before guests or after a project","Hosting, holidays or post-remodel dust? A deep clean gets the whole home ready.")],
-  faqs=[("How much does deep cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),("What's the difference between a deep clean and a standard clean?","A standard clean maintains a home that's already in good shape. A deep clean adds detail work like baseboards, vents, cabinet fronts, grout and hard-water buildup."),("How long does a deep clean take?","It depends on the size and condition of the home; larger homes may get more than one cleaner so the job finishes the same day."),("Do you bring supplies?","Yes. We bring eco-friendly products and all equipment."),("What if something is missed?","Tell us within 24 hours and we'll return for a free touch-up.")]),
+  faqs=[("How much does deep cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),("What's the difference between a deep clean and a standard clean?","A standard clean maintains a home that's already in good shape. A deep clean adds detail work like baseboards, vents, cabinet fronts, grout and hard-water buildup."),("How long does a deep clean take?","It depends on the size and condition of the home; larger homes may get more than one cleaner so the job finishes the same day."),("Do you bring supplies?","Yes. We bring eco-friendly products and all equipment."),("What if something is missed?","Tell us within 24 hours and we'll return for a free touch-up.")]),
  "move-out-cleaning-salt-lake-city": dict(
   name="Move-In & Move-Out Cleaning", city="Salt Lake City",
   title="Move-Out Cleaning Salt Lake City, UT | Pro Peach",
@@ -203,7 +203,7 @@ SERVICES = {
   answer="Pro Peach Cleaning provides move-in and move-out cleaning in Salt Lake City and nearby Salt Lake Valley cities. We clean empty homes, apartments and condos top to bottom, including inside cabinets and drawers, inside appliances, closets, baseboards, bathrooms and floors, so the home is ready for inspection, new tenants or new owners. Every clean is backed by our 24-hour free touch-up.",
   included=["Inside all cabinets and drawers","Inside oven, refrigerator and microwave","Closets, shelves and rods","Baseboards, door frames and light switches","Bathrooms scrubbed: tub, shower, toilet, sink, mirrors","Kitchen counters, backsplash and sink","Floors vacuumed and mopped throughout","Window sills and tracks"],
   when=[("Renters moving out","Hand back the keys to a spotless apartment and give yourself the best chance at your security deposit."),("Buyers and new owners","Move into a home that's truly clean, inside every cabinet and appliance."),("Landlords and property managers","Turn units quickly between tenants across Salt Lake City, Sugar House, South Salt Lake and Murray.")],
-  faqs=[("How much does move-out cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),("Does the home need to be empty?","Yes, move-in/move-out cleaning is designed for empty homes so we can reach inside every cabinet, closet and appliance."),("Do you clean inside the oven and fridge?","Yes. Inside the oven, refrigerator and microwave are included."),("Can you schedule around my closing or lease end date?","Yes. Book online and pick the date and time that fits, 7 days a week from 8 AM to 8 PM."),("Is there a guarantee?","Every clean includes a 24-hour free touch-up for anything on the checklist that was missed.")]),
+  faqs=[("How much does move-out cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),("Does the home need to be empty?","Yes, move-in/move-out cleaning is designed for empty homes so we can reach inside every cabinet, closet and appliance."),("Do you clean inside the oven and fridge?","Yes. Inside the oven, refrigerator and microwave are included."),("Can you schedule around my closing or lease end date?","Yes. Book online and pick the date and time that fits, 7 days a week from 8 AM to 8 PM."),("Is there a guarantee?","Every clean includes a 24-hour free touch-up for anything on the checklist that was missed.")]),
  "airbnb-cleaning-salt-lake-city": dict(
   name="Airbnb & Vacation Rental Cleaning", city="Salt Lake City",
   title="Airbnb Cleaning Salt Lake City, UT | Pro Peach Cleaning",
@@ -213,7 +213,7 @@ SERVICES = {
   answer="Pro Peach Cleaning provides Airbnb and vacation-rental turnover cleaning in Salt Lake City and nearby Salt Lake Valley cities. Between guests we reset the whole rental: beds made with fresh linens, bathrooms and kitchen cleaned, trash removed, floors done and surfaces wiped, so your next guests check in to a spotless, five-star-ready space. Our background-checked, insured cleaners bring eco-friendly supplies.",
   included=["Beds stripped and remade with your fresh linens","Bathrooms cleaned and towels staged","Kitchen reset: counters, sink, appliance fronts, dishes","Trash and recycling removed","Floors vacuumed and mopped","Mirrors, glass and high-touch surfaces wiped","Quick walkthrough for damage or missing items"],
   when=[("Downtown and Sugar House stays","Turn city-center units quickly between same-day checkouts and check-ins."),("Ski-season rentals","Cottonwood Heights and canyon-adjacent rentals need fast resets after mud, snow and gear."),("Event weekends","Busy convention and event weekends downtown mean back-to-back bookings, so we keep your calendar moving.")],
-  faqs=[("How much does Airbnb cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),("Can you clean between same-day checkout and check-in?","Yes. Book the turnover for the window between checkout and check-in."),("Do you do laundry?","We remake beds with the fresh linens you provide. Tell us your setup when you book."),("Are your cleaners insured?","Yes. Pro Peach Cleaning is licensed, bonded and insured, and every cleaner is background-checked."),("Do you serve rentals outside Salt Lake City?","Yes: Millcreek, Holladay, Murray, Cottonwood Heights, Sugar House and South Salt Lake.")]),
+  faqs=[("How much does Airbnb cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (385) 217-9244 and we'll walk you through it."),("Can you clean between same-day checkout and check-in?","Yes. Book the turnover for the window between checkout and check-in."),("Do you do laundry?","We remake beds with the fresh linens you provide. Tell us your setup when you book."),("Are your cleaners insured?","Yes. Pro Peach Cleaning is licensed, bonded and insured, and every cleaner is background-checked."),("Do you serve rentals outside Salt Lake City?","Yes: Millcreek, Holladay, Murray, Cottonwood Heights, Sugar House and South Salt Lake.")]),
 }
 
 # ---- Cost pages (owner 2026-10-11: prices ONLY on dedicated cost pages, like Sparkle) ----
@@ -232,7 +232,7 @@ COSTS = {
     faqs=[("How much does a house cleaning cost in Salt Lake City?","A standard cleaning with Pro Peach Cleaning starts at $149 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
           ("Do bedrooms and bathrooms change the price?","Our pricing is based on square footage and the type of cleaning, not the number of bedrooms or bathrooms."),
           ("Do you charge for supplies?","No. All eco-friendly cleaning supplies and equipment are included."),
-          ("How do I get an exact price?","Book online and enter your home's square footage to see your exact price instantly, or call or text (470) 412-9977, 7 days a week, 8 AM to 8 PM.")]),
+          ("How do I get an exact price?","Book online and enter your home's square footage to see your exact price instantly, or call or text (385) 217-9244, 7 days a week, 8 AM to 8 PM.")]),
  "deep-cleaning-cost-salt-lake-city": dict(kind="Deep", add=50,
     title="Deep Cleaning Cost in Salt Lake City (2026) | Pro Peach",
     desc="Deep cleaning in Salt Lake City starts at $199 for homes under 1,000 sq ft with Pro Peach Cleaning. See deep cleaning prices by home size and what's included.",
@@ -243,7 +243,7 @@ COSTS = {
     faqs=[("How much does deep cleaning cost in Salt Lake City?","Deep cleaning with Pro Peach Cleaning starts at $199 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
           ("Why does a deep clean cost more than a standard clean?","A deep clean includes detail work a standard clean skips, like baseboards, vents, cabinet fronts, grout and hard-water spots, so it takes more time."),
           ("Do I need a deep clean first?","If your home hasn't had a professional cleaning in the last month or two, start with a deep clean. After that, standard cleaning keeps it fresh."),
-          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (470) 412-9977.")]),
+          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (385) 217-9244.")]),
  "move-out-cleaning-cost-salt-lake-city": dict(kind="Move-in / move-out", add=100,
     title="Move-Out Cleaning Cost in Salt Lake City (2026) | Pro Peach",
     desc="Move-in/move-out cleaning in Salt Lake City starts at $249 for homes under 1,000 sq ft with Pro Peach Cleaning. See prices by home size and what's included.",
@@ -254,7 +254,7 @@ COSTS = {
     faqs=[("How much does move-out cleaning cost in Salt Lake City?","Move-in/move-out cleaning with Pro Peach Cleaning starts at $249 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
           ("What's included in a move-out clean?","Inside cabinets and drawers, inside the oven, refrigerator and microwave, closets, baseboards, bathrooms, kitchen and all floors."),
           ("Does the home need to be empty?","Yes. Move-in/move-out cleaning is priced for empty homes so we can reach inside every cabinet, closet and appliance."),
-          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (470) 412-9977.")]),
+          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (385) 217-9244.")]),
 }
 OFFICE = dict(slug="office-cleaning-cost-salt-lake-city",
     title="Office Cleaning Cost in Salt Lake City: What Affects Price",

@@ -48,7 +48,7 @@ def facts(place):
       <div class="pp-facts" aria-label="Quick facts">
         <div><span>Pricing</span><strong>Instant online quote</strong></div>
         <div><span>Hours</span><strong>7 days &middot; 8 AM–8 PM</strong></div>
-        <div><span>Call or text</span><strong><a href="tel:+14704129977">(470) 412-9977</a></strong></div>
+        <div><span>Call or text</span><strong><a href="tel:+13852179244">(385) 217-9244</a></strong></div>
         <div><span>Booking</span><strong><a href="{BOOK}" target="_blank" rel="noopener">Online in 60 seconds</a></strong></div>
       </div>
     </div></section>
@@ -127,7 +127,7 @@ vis,bld=crumbs([("Home","/"),("Service Areas","/service-areas")])
 h=inject(h,[bld,ld({"@context":"https://schema.org","@type":"ItemList","name":"Pro Peach Cleaning Utah service areas","itemListElement":[{"@type":"ListItem","position":i+1,"url":BASE+"/"+c["slug"],"name":"House Cleaning "+c["name"]} for i,c in enumerate(CITIES.values())]})])
 cards=''.join(f'<a class="pp-card pp-card--link" href="/{c["slug"]}"><h3>{E(c["name"])}</h3><p>{E(c["desc"])}</p></a>' for c in CITIES.values())
 svc=''.join(f'<a class="pp-pill" href="/{k}">{E(v["name"])} in {E(v["city"])}</a>' for k,v in SERVICES.items())
-body=vis+hero("House Cleaning in Salt Lake City & Surrounding Areas","Pro Peach Cleaning serves Salt Lake City and the surrounding Salt Lake Valley: Millcreek, Holladay, Murray, Cottonwood Heights, Sugar House and South Salt Lake. We offer standard, deep, move-in/move-out, Airbnb, commercial and post-construction cleaning. Get an instant price online or call or text (470) 412-9977.")+facts("Salt Lake City")
+body=vis+hero("House Cleaning in Salt Lake City & Surrounding Areas","Pro Peach Cleaning serves Salt Lake City and the surrounding Salt Lake Valley: Millcreek, Holladay, Murray, Cottonwood Heights, Sugar House and South Salt Lake. We offer standard, deep, move-in/move-out, Airbnb, commercial and post-construction cleaning. Get an instant price online or call or text (385) 217-9244.")+facts("Salt Lake City")
 body+=f'    <section class="pp-sec"><div class="pp-in"><h2>Choose Your City</h2><div class="pp-cards pp-cards--svc">{cards}</div></div></section>\n'
 body+=f'    <section class="pp-sec"><div class="pp-in"><h2>Popular Services in Salt Lake City</h2><div class="pp-pills">{svc}</div></div></section>\n'
 body+=price_table("the Salt Lake Valley")+WHY.format(place="the Salt Lake Valley")
