@@ -2808,3 +2808,12 @@ footer.pp-main-footer{background:#fff;color:#333;padding:24px 0 36px;font-family
 .pp-tiers{list-style:none;padding:0;margin:0 0 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
 .pp-tiers li{background:#fff;border:1px solid #F6D3CC;border-radius:999px;padding:10px 18px;font-family:"Helvetica Neue",Arial,sans-serif}
 @media (max-width:640px){.pp-tiers{grid-template-columns:1fr}}
+
+/* Google review badge (mirrors Sparkle's hero review badge, Pro Peach colors) */
+.review-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;margin:0 auto 6px;background:#fff;border:2px solid #F27D72;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap}
+.review-stars{color:#F5B301;font-size:15px;letter-spacing:1px}
+.review-text{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:14px;color:#333}
+.review-cta{background:#F27D72;color:#fff;border-radius:999px;padding:5px 12px;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.review-badge:hover .review-cta{background:#E46A5E}
+.pp-chiprow .review-badge{margin-bottom:8px}
+@media (max-width:420px){.review-badge{gap:4px;padding:4px 4px 4px 10px}.review-stars,.review-text,.review-cta{font-size:11px}}
