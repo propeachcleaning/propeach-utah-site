@@ -2802,3 +2802,6 @@ footer.pp-main-footer{background:#fff;color:#333;padding:24px 0 36px;font-family
 .pp-hoods li{background:#fff}
 .pp-card{background:#fff}
 @media (max-width:640px){.pp-sec>.pp-in{padding:24px 20px;border-radius:22px}}
+/* Book Now buttons always on one line (owner 2026-10-11) */
+.nav-book-btn,.btn-primary,.mobile-menu-book,.pp-hero-btn,.pp-footer-links a{white-space:nowrap}
+.nav-book-btn{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}

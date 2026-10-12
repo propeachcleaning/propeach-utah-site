@@ -38,3 +38,7 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 - Each: answer-first intro, quick facts, prices (from $149/$199/$249/$149), local content, services grid, neighborhoods, why-us, FAQ (visible + FAQPage), nearby links; Service + BreadcrumbList + LocalBusiness JSON-LD.
 - Homepage retargeted to "house cleaning Salt Lake City"; LocalBusiness areaServed = 7 Salt Lake Valley areas sitewide; sitemap + llms.txt updated; Services dropdown + footer link to areas.
 - To edit copy: change tools/areas.py, run `python3 tools/build_areas.py`.
+
+### 2026-10-11 — No public prices (match Sparkle) + one-line Book Now
+- Owner: no prices on public pages, like Sparkle's main/service/city pages. Removed all $ amounts from pages, FAQs, schema (priceRange now "$$", no Offer prices) and llms.txt. Pricing sections now explain "instant online quote" with a Get My Price button.
+- Book Now / CTA buttons forced to a single line (white-space: nowrap).
