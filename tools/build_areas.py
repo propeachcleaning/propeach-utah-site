@@ -131,7 +131,7 @@ body=vis+hero("House Cleaning in Salt Lake City & Surrounding Areas","Pro Peach 
 body+=f'    <section class="pp-sec"><div class="pp-in"><h2>Choose Your City</h2><div class="pp-cards pp-cards--svc">{cards}</div></div></section>\n'
 body+=f'    <section class="pp-sec"><div class="pp-in"><h2>Popular Services in Salt Lake City</h2><div class="pp-pills">{svc}</div></div></section>\n'
 body+=price_table("the Salt Lake Valley")+WHY.format(place="the Salt Lake Valley")
-body+='    <section class="pp-sec"><div class="pp-in"><h2>Also in Metro Atlanta, Georgia</h2><p>Pro Peach Cleaning also serves metro Atlanta. <a href="https://propeachcleaning.com/">Visit Pro Peach Cleaning Atlanta</a>.</p></div></section>\n'
+body+='    <section class="pp-sec"><div class="pp-in"><h2>Also in Georgia</h2><p>Pro Peach Cleaning also serves metro Atlanta and the Athens (UGA), Savannah and Augusta areas of Georgia. <a href="https://propeachcleaning.com/">Visit Pro Peach Cleaning Georgia</a>.</p></div></section>\n'
 open('service-areas.html','w').write(h+body+'\n'+tail); pages.append(('service-areas','Service Areas'))
 print('\n'.join(f'{p}  ({len(t)})  {t}' for p,t in pages))
 
