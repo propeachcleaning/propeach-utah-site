@@ -2656,8 +2656,87 @@ input,select,textarea{border-radius:12px!important}
 .services-logomark--brand{width:40%!important;filter:none}
 .footer-logo{height:auto;width:180px;max-width:80%;opacity:1}
 
-/* Trust chips: mirrors Sparkle Squad's trust-chip component, Pro Peach colors (replaces badge.png 2026-10-11) */
-.footer-badge .trust-chips{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
-.trust-chip{display:flex;align-items:center;background:rgba(255,255,255,.75);border-radius:999px;padding:5px 14px 5px 5px;box-shadow:0 2px 10px rgba(59,47,42,.06)}
-.trust-icon{display:flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:7px;border-radius:50%;background:#F27D72;color:#fff;font-size:12px;font-weight:700;line-height:12px}
-.trust-label{color:#3B2F2A;font-family:Oswald,sans-serif;font-size:14px;font-weight:600;letter-spacing:.3px;white-space:nowrap;text-transform:uppercase}
+
+/* ===== Footer: 1:1 with Sparkle Squad's footer (locations map cards + signup/links/call box), Pro Peach colors — 2026-10-11 ===== */
+.pp-footer{--pp-peach:#F27D72;--pp-ink:#3B2F2A;--pp-muted:#6B5A53;--pp-line:#F6D3CC;position:relative;z-index:1;isolation:isolate;background:#fff;color:#333;padding:40px 0 0;font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:1rem;line-height:1.6;text-align:left}
+.pp-footer *,.pp-footer *::before,.pp-footer *::after{box-sizing:border-box}
+.pp-footer .pp-wrap{max-width:1150px;margin:0 auto;padding:0 40px}
+.pp-footer a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.25em}
+.pp-footer a:focus-visible{outline:2px solid var(--pp-peach);outline-offset:2px;border-radius:3px}
+.pp-footer .pp-section-head{display:flex;gap:1rem;justify-content:space-between;align-items:baseline;margin-bottom:20px}
+.pp-footer .pp-section-head h3{margin:0;font-family:Oswald,"Arial Narrow",sans-serif;font-size:32px;line-height:1.1;font-weight:700;color:var(--pp-peach);text-transform:uppercase;letter-spacing:0}
+.pp-footer .pp-section-head>p{margin:0;font-family:Oswald,"Arial Narrow",sans-serif;font-size:22px;font-weight:700;line-height:1.2;color:var(--pp-peach);text-transform:uppercase}
+.pp-footer .pp-locations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.pp-footer .pp-location{position:relative;height:420px;overflow:hidden;isolation:isolate;border:1px solid var(--pp-line);border-radius:22px;background:#fff}
+.pp-footer .pp-map{position:absolute;inset:0;z-index:0;background:#f3eeec}
+.pp-footer .pp-map iframe{display:block;width:100%;height:100%;border:0}
+.pp-footer .pp-location-body{position:absolute;z-index:2;left:10px;right:10px;bottom:30px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:9px 12px;background:#fff;border:1px solid var(--pp-line);border-radius:14px;box-shadow:0 2px 8px #0000000d;font-size:12px;line-height:1.4}
+.pp-footer .pp-location-top{grid-column:1;grid-row:1;display:flex;align-items:center;gap:1rem;margin:0}
+.pp-footer .pp-location h4{margin:0;font-family:Oswald,"Arial Narrow",sans-serif;font-size:23px;line-height:1;font-weight:700;color:var(--pp-peach);text-transform:uppercase;letter-spacing:0}
+.pp-footer .pp-pin{display:none}
+.pp-footer address{display:contents;font-style:normal}
+.pp-footer address p{display:none}
+.pp-footer .pp-phone{grid-column:2;grid-row:1;align-self:center;margin:0;font-size:12px;font-weight:700;color:var(--pp-ink);line-height:24px}
+.pp-footer .pp-google-reviews{grid-column:1/-1;display:inline-flex;align-items:center;gap:4px;width:fit-content;min-height:24px;font-size:12px;line-height:1.5;text-decoration:none}
+.pp-footer .pp-google-reviews>span:first-child{color:#b76a00}
+.pp-footer .pp-review-count{text-decoration:underline;text-underline-offset:2px}
+.pp-footer .pp-visit-note{grid-column:1/-1;margin:1px 0;font-size:11px;line-height:1.35;color:var(--pp-muted)}
+.pp-footer .pp-location-link{grid-column:1/-1;margin:2px 0 0;font-size:12px;font-weight:700;line-height:1.4}
+footer.pp-main-footer{background:#fff;color:#333;padding:24px 0 36px;font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:14px;line-height:20px}
+.pp-main-footer .pp-footer-inner{max-width:1150px;margin:0 auto;padding:20px 40px 0}
+.pp-main-footer .pp-footerblock{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.pp-main-footer .pp-emailsignup{margin:0 0 15px;flex:1 1 auto;max-width:560px}
+.pp-main-footer .pp-signup-form{display:flex;flex-direction:column;gap:20px;margin:0}
+.pp-main-footer .pp-field-label{display:block;margin:0 0 5px;font-family:Oswald,"Arial Narrow",sans-serif;font-size:40px;font-weight:700;line-height:40px;letter-spacing:-1px;color:#F27D72}
+.pp-main-footer .pp-signupblock{display:flex;align-items:flex-start}
+.pp-main-footer .pp-text-field{flex:1;height:48px;margin:0;padding:9px 16px;background:#fff;border:1px solid #F27D72;border-right:0;border-radius:999px 0 0 999px;color:#F27D72;font-family:Oswald,"Arial Narrow",sans-serif;font-size:18px;outline:none}
+.pp-main-footer .pp-text-field::placeholder{color:#F27D72;opacity:1}
+.pp-main-footer .pp-submit{height:48px;padding:9px 20px;background:transparent;border:1px solid #F27D72;border-radius:0 999px 999px 0;color:#F27D72;font-family:Oswald,"Arial Narrow",sans-serif;font-size:18px;cursor:pointer;transition:background .2s,color .2s}
+.pp-main-footer .pp-submit:hover{background:#F27D72;color:#fff}
+.pp-main-footer .pp-signuphelper{margin-top:8px;font-family:Oswald,"Arial Narrow",sans-serif;font-size:14px;line-height:20px;color:#F27D72}
+.pp-main-footer .pp-footer-links{display:flex;flex-wrap:wrap;max-width:440px;align-items:flex-start}
+.pp-main-footer .pp-footer-links a{display:block;padding:9px 15px;font-family:Oswald,"Arial Narrow",sans-serif;font-size:14px;line-height:20px;color:#F27D72;text-decoration:none}
+.pp-main-footer .pp-footer-links a:hover{text-decoration:underline}
+.pp-main-footer .pp-hours{max-width:620px;margin:16px auto 0;padding:14px 20px;background:#FFF6EF;border:2px solid #F27D72;border-radius:16px;text-align:center}
+.pp-main-footer .pp-hours>div{font-family:Oswald,"Arial Narrow",sans-serif;font-weight:700;font-size:24px;line-height:1.1;color:#F27D72;text-transform:uppercase;letter-spacing:.3px}
+.pp-main-footer .pp-hours>div a{color:#F27D72;text-decoration:none;white-space:nowrap}
+.pp-main-footer .pp-hours>div a:hover{text-decoration:underline}
+.pp-main-footer .pp-hours>p{margin:6px 0 0;font-size:13px;line-height:1.5;color:#5a4a4d}
+.pp-main-footer .pp-hours>p a{color:inherit}
+.pp-main-footer .pp-copy{margin:18px 0 0;text-align:center;font-size:12px;color:#8a7a74}
+@media (max-width:760px){
+  .pp-footer .pp-section-head{flex-direction:column;gap:.35rem}
+  .pp-footer .pp-locations{grid-template-columns:1fr}
+  .pp-main-footer .pp-footerblock{flex-direction:column;align-items:flex-start}
+  .pp-main-footer .pp-field-label{font-size:32px;line-height:34px}
+}
+@media (max-width:600px){
+  .pp-footer{padding-top:28px}
+  .pp-footer .pp-wrap,.pp-main-footer .pp-footer-inner{padding-left:20px;padding-right:20px}
+  .pp-footer .pp-section-head h3{font-size:28px}
+  .pp-footer .pp-location{height:390px}
+  .pp-footer .pp-location-body{padding:10px 12px}
+  footer.pp-main-footer{padding-bottom:92px}
+}
+@media (max-width:479px){
+  .pp-main-footer .pp-hours{margin:14px 4px 0;padding:12px 14px}
+  .pp-main-footer .pp-hours>div{font-size:21px}
+  .pp-main-footer .pp-footer-links a{padding:5px 15px 5px 0}
+}
+/* ===== Hero trust + owner chips: 1:1 with Sparkle Squad's hero chips, Pro Peach colors ===== */
+.pp-hero-chips{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:-1.25rem}
+.trust-chips,.own-chips{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;width:100%;margin-top:6px}
+.trust-chip,.own-chip{display:flex;align-items:center;margin:4px;padding:5px 14px 5px 5px;border-radius:999px;cursor:default}
+.trust-chip{background:rgba(255,255,255,.75)}
+.own-chip{background:#F27D72}
+.trust-icon,.own-icon{display:flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:7px;border-radius:50%;font-size:12px;font-weight:700;line-height:12px}
+.trust-icon{background:#F27D72;color:#fff}
+.own-icon{background:#fff;color:#F27D72}
+.trust-label,.own-label{font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:700;line-height:18px;letter-spacing:.2px;white-space:nowrap;text-transform:none}
+.trust-label{color:#333}
+.own-label{color:#fff}
+@media (max-width:479px){.trust-label,.own-label{font-size:12px}.trust-chip,.own-chip{padding:4px 10px 4px 4px}}
+.pp-main-footer .pp-emailsignup{max-width:none}
+.pp-main-footer .pp-field-label{white-space:nowrap;font-size:clamp(26px,3.4vw,40px);line-height:1}
+.pp-main-footer .pp-signupblock{max-width:520px}
+@media (max-width:479px){.pp-main-footer .pp-field-label{white-space:normal}}

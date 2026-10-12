@@ -25,3 +25,8 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 - New favicon.png / favicon.ico / apple-touch-icon.png; schema `logo` now images/pro-peach-logo-512.png.
 - Footer "Licensed, Bonded & Insured" badge image replaced by Sparkle-style trust chips (Bonded & Insured, Background-Checked, 24-Hour Free Touch-Up).
 - Photos unchanged: Utah keeps its own photos (no Sparkle imagery).
+
+### 2026-10-11 — Footer matches Sparkle Squad 1:1 (Pro Peach colors) + hero chips
+- Footer rebuilt on all 6 pages to Sparkle's structure: "Our Locations" map cards (Utah / Salt Lake City + Atlanta; pins/addresses to be refined), big tagline + email signup + consent, link row, Call-or-Text box.
+- Hero (home) gets Sparkle's chip rows: Bonded & Insured, Background-Checked, Eco-Friendly + Women-, Veteran-, Latino-Owned (owner-confirmed 2026-10-11).
+- Email signup currently opens an email to clean@ (static site); swap to a Make webhook → MailerLite when approved.
