@@ -2805,3 +2805,6 @@ footer.pp-main-footer{background:#fff;color:#333;padding:24px 0 36px;font-family
 /* Book Now buttons always on one line (owner 2026-10-11) */
 .nav-book-btn,.btn-primary,.mobile-menu-book,.pp-hero-btn,.pp-footer-links a{white-space:nowrap}
 .nav-book-btn{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.pp-tiers{list-style:none;padding:0;margin:0 0 16px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+.pp-tiers li{background:#fff;border:1px solid #F6D3CC;border-radius:999px;padding:10px 18px;font-family:"Helvetica Neue",Arial,sans-serif}
+@media (max-width:640px){.pp-tiers{grid-template-columns:1fr}}

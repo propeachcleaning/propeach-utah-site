@@ -215,3 +215,48 @@ SERVICES = {
   when=[("Downtown and Sugar House stays","Turn city-center units quickly between same-day checkouts and check-ins."),("Ski-season rentals","Cottonwood Heights and canyon-adjacent rentals need fast resets after mud, snow and gear."),("Event weekends","Busy convention and event weekends downtown mean back-to-back bookings, so we keep your calendar moving.")],
   faqs=[("How much does Airbnb cleaning cost in Salt Lake City?","Every home is different, so pricing is based on your home's size and the type of clean you choose. Get your exact price instantly when you book online, with no phone call needed, or call or text (470) 412-9977 and we'll walk you through it."),("Can you clean between same-day checkout and check-in?","Yes. Book the turnover for the window between checkout and check-in."),("Do you do laundry?","We remake beds with the fresh linens you provide. Tell us your setup when you book."),("Are your cleaners insured?","Yes. Pro Peach Cleaning is bonded and insured, and every cleaner is background-checked."),("Do you serve rentals outside Salt Lake City?","Yes: Millcreek, Holladay, Murray, Cottonwood Heights, Sugar House and South Salt Lake.")]),
 }
+
+# ---- Cost pages (owner 2026-10-11: prices ONLY on dedicated cost pages, like Sparkle) ----
+# Pro Peach live BookingKoala prices (read 2026-10-11): price by sq ft only; deep = +$50, move = +$100; Airbnb = standard.
+TIERS = ["Under 1,000 sq ft","1,000 to 1,249 sq ft","1,250 to 1,499 sq ft","1,500 to 1,749 sq ft","1,750 to 1,999 sq ft",
+         "2,000 to 2,249 sq ft","2,250 to 2,499 sq ft","2,500 to 2,749 sq ft","2,750 to 2,999 sq ft","3,000 sq ft and up"]
+STANDARD = [149,189,219,249,279,309,339,369,399,429]
+COSTS = {
+ "house-cleaning-cost-salt-lake-city": dict(kind="Standard", add=0,
+    title="House Cleaning Cost in Salt Lake City (2026) | Pro Peach",
+    desc="How much does house cleaning cost in Salt Lake City? Pro Peach standard cleaning starts at $149 for homes under 1,000 sq ft. See prices by home size.",
+    h1="How Much Does House Cleaning Cost in Salt Lake City?",
+    lead="A standard house cleaning with Pro Peach Cleaning starts at $149 for homes under 1,000 square feet in Salt Lake City and the surrounding Salt Lake Valley. Your price is based on your home's size, and you'll see your exact price instantly when you book online.",
+    h2="Standard Cleaning Prices by Home Size",
+    note="Deep cleaning adds $50 and move-in or move-out cleaning adds $100 to these prices. Airbnb turnovers are priced the same as standard cleaning.",
+    faqs=[("How much does a house cleaning cost in Salt Lake City?","A standard cleaning with Pro Peach Cleaning starts at $149 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
+          ("Do bedrooms and bathrooms change the price?","Our pricing is based on square footage and the type of cleaning, not the number of bedrooms or bathrooms."),
+          ("Do you charge for supplies?","No. All eco-friendly cleaning supplies and equipment are included."),
+          ("How do I get an exact price?","Book online and enter your home's square footage to see your exact price instantly, or call or text (470) 412-9977, 7 days a week, 8 AM to 8 PM.")]),
+ "deep-cleaning-cost-salt-lake-city": dict(kind="Deep", add=50,
+    title="Deep Cleaning Cost in Salt Lake City (2026) | Pro Peach",
+    desc="Deep cleaning in Salt Lake City starts at $199 for homes under 1,000 sq ft with Pro Peach Cleaning. See deep cleaning prices by home size and what's included.",
+    h1="How Much Does Deep Cleaning Cost in Salt Lake City?",
+    lead="A deep cleaning with Pro Peach Cleaning starts at $199 for homes under 1,000 square feet in Salt Lake City. That's our standard price plus $50 for the extra detail work: baseboards, door frames, vents, cabinet fronts, grout and hard-water buildup.",
+    h2="Deep Cleaning Prices by Home Size",
+    note="Deep cleaning is our standard price plus $50. Move-in or move-out cleaning is standard plus $100.",
+    faqs=[("How much does deep cleaning cost in Salt Lake City?","Deep cleaning with Pro Peach Cleaning starts at $199 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
+          ("Why does a deep clean cost more than a standard clean?","A deep clean includes detail work a standard clean skips, like baseboards, vents, cabinet fronts, grout and hard-water spots, so it takes more time."),
+          ("Do I need a deep clean first?","If your home hasn't had a professional cleaning in the last month or two, start with a deep clean. After that, standard cleaning keeps it fresh."),
+          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (470) 412-9977.")]),
+ "move-out-cleaning-cost-salt-lake-city": dict(kind="Move-in / move-out", add=100,
+    title="Move-Out Cleaning Cost in Salt Lake City (2026) | Pro Peach",
+    desc="Move-in/move-out cleaning in Salt Lake City starts at $249 for homes under 1,000 sq ft with Pro Peach Cleaning. See prices by home size and what's included.",
+    h1="How Much Does Move-Out Cleaning Cost in Salt Lake City?",
+    lead="Move-in and move-out cleaning with Pro Peach Cleaning starts at $249 for homes under 1,000 square feet in Salt Lake City. That's our standard price plus $100, because an empty-home clean includes inside cabinets, drawers, closets and appliances.",
+    h2="Move-In / Move-Out Cleaning Prices by Home Size",
+    note="Move-in/move-out cleaning is our standard price plus $100. Deep cleaning is standard plus $50.",
+    faqs=[("How much does move-out cleaning cost in Salt Lake City?","Move-in/move-out cleaning with Pro Peach Cleaning starts at $249 for homes under 1,000 square feet and goes up about $30 for every additional 250 square feet."),
+          ("What's included in a move-out clean?","Inside cabinets and drawers, inside the oven, refrigerator and microwave, closets, baseboards, bathrooms, kitchen and all floors."),
+          ("Does the home need to be empty?","Yes. Move-in/move-out cleaning is priced for empty homes so we can reach inside every cabinet, closet and appliance."),
+          ("How do I get an exact price?","Book online and enter your square footage to see your exact price instantly, or call or text (470) 412-9977.")]),
+}
+OFFICE = dict(slug="office-cleaning-cost-salt-lake-city",
+    title="Office Cleaning Cost in Salt Lake City: What Affects Price",
+    desc="How much does office cleaning cost in Salt Lake City? See what affects your price, how often to clean, what's included and how to get an accurate quote.",
+    h1="How Much Does Office Cleaning Cost in Salt Lake City?")

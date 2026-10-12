@@ -42,3 +42,7 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 ### 2026-10-11 — No public prices (match Sparkle) + one-line Book Now
 - Owner: no prices on public pages, like Sparkle's main/service/city pages. Removed all $ amounts from pages, FAQs, schema (priceRange now "$$", no Offer prices) and llms.txt. Pricing sections now explain "instant online quote" with a Get My Price button.
 - Book Now / CTA buttons forced to a single line (white-space: nowrap).
+
+### 2026-10-11 — Salt Lake City cost pages (prices live ONLY here, like Sparkle)
+- house-cleaning-cost-, deep-cleaning-cost-, move-out-cleaning-cost-, office-cleaning-cost-salt-lake-city (mirrors Sparkle's Miami cost pages).
+- Prices = Pro Peach BookingKoala ladder read 2026-10-11 (standard 149/189/219/…/429+; deep +$50; move +$100). If BookingKoala prices change, update STANDARD in tools/areas.py and rebuild.

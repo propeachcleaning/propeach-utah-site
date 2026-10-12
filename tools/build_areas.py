@@ -58,7 +58,7 @@ def price_table(place,highlight=None):
       <p>Every home is different, so your price is based on your home's size and the type of clean you choose: standard, deep, move-in/move-out or Airbnb turnover. Book online and you'll see your exact price instantly, before you confirm, with no phone call and no surprise fees.</p>
       <ul class="pp-check"><li>Instant, upfront quote online</li><li>Price set by home size and cleaning type</li><li>No hidden fees</li><li>24-hour free touch-up included</li></ul>
       <p style="margin-top:18px"><a class="btn-primary" href="{BOOK}" target="_blank" rel="noopener">Get My Price</a></p>
-      <p class="pp-small">Commercial and post-construction cleaning are quoted per project. <a href="/services-commercial">Commercial cleaning</a> · <a href="/services-construction">Post-construction cleaning</a></p>
+      <p class="pp-small">See our <a href="/house-cleaning-cost-salt-lake-city">Salt Lake City cleaning price guide</a>. Commercial and post-construction cleaning are quoted per project. <a href="/services-commercial">Commercial cleaning</a> · <a href="/services-construction">Post-construction cleaning</a></p>
     </div></section>
 '''
 WHY='''    <section class="pp-sec pp-why"><div class="pp-in">
@@ -133,3 +133,32 @@ body+=price_table("the Salt Lake Valley")+WHY.format(place="the Salt Lake Valley
 body+='    <section class="pp-sec"><div class="pp-in"><h2>Also in Metro Atlanta, Georgia</h2><p>Pro Peach Cleaning also serves metro Atlanta. <a href="https://propeachcleaning.com/">Visit Pro Peach Cleaning Atlanta</a>.</p></div></section>\n'
 open('service-areas.html','w').write(h+body+'\n'+tail); pages.append(('service-areas','Service Areas'))
 print('\n'.join(f'{p}  ({len(t)})  {t}' for p,t in pages))
+
+# ===== Cost pages (prices live ONLY here, like Sparkle) =====
+from areas import COSTS,TIERS,STANDARD,OFFICE
+def cost_shell(slug,title,desc,crumb,faqs,body_inner):
+    h,url=set_meta(head,title,desc,slug)
+    vis,bld=crumbs([("Home","/"),("Service Areas","/service-areas"),(crumb,"/"+slug)])
+    h=inject(h,[bld,faq_ld(faqs)])
+    open(slug+'.html','w').write(h+vis+body_inner+'\n'+tail); pages.append((slug,title))
+for slug,c in COSTS.items():
+    rows=''.join(f'<li><strong>{E(t)}:</strong> from ${p+c["add"]}{", quoted for your home" if t.startswith("3,000") else ""}</li>' for t,p in zip(TIERS,STANDARD))
+    b=f'    <div class="pp-h1wrap"><h1>{E(c["h1"])}</h1><p class="pp-answer">{E(c["lead"])}</p><a class="btn-primary pp-hero-btn" href="{BOOK}" target="_blank" rel="noopener">Get My Exact Price</a>\n{CHIPS}    </div>\n'
+    b+=f'    <section class="pp-sec"><div class="pp-in"><h2>{E(c["h2"])}</h2><ul class="pp-tiers">{rows}</ul><p>{E(c["note"])} See <a href="/house-cleaning-cost-salt-lake-city">house cleaning cost</a>, <a href="/deep-cleaning-cost-salt-lake-city">deep cleaning cost</a> and <a href="/move-out-cleaning-cost-salt-lake-city">move-out cleaning cost</a>.</p></div></section>\n'
+    b+='    <section class="pp-sec"><div class="pp-in"><h2>What\'s Included</h2><p>Every clean follows our detailed checklist: kitchen and bathrooms cleaned and sanitized, surfaces dusted, floors vacuumed and mopped, and trash taken out. Our background-checked cleaners bring their own eco-friendly supplies, and every visit is backed by our 24-hour free touch-up.</p><p>Need more detail? See <a href="/deep-cleaning-salt-lake-city">deep cleaning</a>, <a href="/move-out-cleaning-salt-lake-city">move-out cleaning</a> or <a href="/airbnb-cleaning-salt-lake-city">Airbnb cleaning</a> in Salt Lake City.</p></div></section>\n'
+    b+='    <section class="pp-sec"><div class="pp-in"><h2>What Can Change Your Price</h2><ul class="pp-check"><li><strong>Home size.</strong> Pricing is set by square footage.</li><li><strong>Type of clean.</strong> Deep cleaning adds $50 and move-in/move-out adds $100.</li><li><strong>Pets.</strong> $15 per pet for the extra hair on floors, furniture and baseboards.</li><li><strong>Extras.</strong> Optional add-ons like inside the fridge or oven, inside cabinets, windows, laundry or organizing.</li><li><strong>Parking.</strong> Paid parking or garage fees at your building are added to the total.</li></ul></div></section>\n'
+    b+='    <section class="pp-sec"><div class="pp-in"><h2>Standard or Deep Clean?</h2><p>If your home hasn\'t had a professional cleaning in the last month or two, start with a deep clean. After that, a standard clean on a weekly, biweekly or monthly schedule keeps it fresh.</p></div></section>\n'
+    b+=faq_html(c["faqs"],"Salt Lake City").replace("House Cleaning FAQs","Cleaning Cost FAQs")
+    b+=near_html(["salt-lake-city","millcreek","holladay","murray","cottonwood-heights","sugar-house","south-salt-lake"],"Related Services and Areas")
+    cost_shell(slug,c["title"],c["desc"],c["h1"].replace("How Much Does ","").replace("?",""),c["faqs"],b)
+of=[("Why don't you list a flat price for office cleaning?","Office cleaning depends on square footage, foot traffic, restrooms and how often you clean. We quote each space so you pay for what your office actually needs."),
+    ("Is recurring office cleaning cheaper per visit?","Usually, yes. Regular cleaning keeps dirt from building up, so each visit takes less time."),
+    ("Can you clean before or after business hours?","Tell us your hours and we'll set a schedule that keeps the cleaning out of your team's way."),
+    ("Are your cleaners background-checked?","Yes. Every cleaner passes a background check, and Pro Peach Cleaning is bonded and insured.")]
+b=f'    <div class="pp-h1wrap"><h1>{E(OFFICE["h1"])}</h1><p class="pp-answer">Office cleaning is priced differently from house cleaning. Two Salt Lake City offices the same size can have very different prices depending on how many people use the space, how many restrooms and kitchens it has, and how often you want it cleaned. Tell us about your space and we\'ll send an accurate quote.</p><a class="btn-primary pp-hero-btn" href="/services-commercial">Request an Office Quote</a>\n{CHIPS}    </div>\n'
+b+='    <section class="pp-sec"><div class="pp-in"><h2>What Affects the Cost of Office Cleaning</h2><ul class="pp-check"><li><strong>Square footage.</strong> More space takes more time, but layout matters too.</li><li><strong>Foot traffic.</strong> Busy offices need more restroom, break room and floor care.</li><li><strong>Restrooms and kitchens.</strong> These take the most time.</li><li><strong>How often we clean.</strong> Recurring service keeps each visit shorter.</li><li><strong>Hours.</strong> We schedule around your team.</li><li><strong>Flooring.</strong> Hard floors, carpet and specialty surfaces are cleaned differently.</li><li><strong>Parking and access.</strong> Paid parking or garage fees are added to the total.</li></ul></div></section>\n'
+b+='    <section class="pp-sec"><div class="pp-in"><h2>How Often Should an Office Be Cleaned?</h2><ul class="pp-check"><li>Several times a week: busy offices, medical and wellness spaces</li><li>Weekly: small offices and studios</li><li>Every other week: low-traffic spaces</li><li>One-time deep clean: before an inspection, move-in, event or after a renovation</li></ul></div></section>\n'
+b+='    <section class="pp-sec"><div class="pp-in"><h2>What\'s Included in Office Cleaning</h2><ul class="pp-check"><li>High-touch surfaces sanitized</li><li>Restrooms cleaned and disinfected</li><li>Break rooms and kitchens wiped down</li><li>Desks and reachable surfaces dusted</li><li>Floors vacuumed and mopped</li><li>Trash emptied and liners replaced</li></ul><p>See <a href="/services-commercial">commercial cleaning in Salt Lake City</a> and <a href="/house-cleaning-cost-salt-lake-city">house cleaning prices</a>.</p></div></section>\n'
+b+=faq_html(of,"Salt Lake City").replace("House Cleaning FAQs","Office Cleaning Cost FAQs")
+cost_shell(OFFICE["slug"],OFFICE["title"],OFFICE["desc"],"Office Cleaning Cost Salt Lake City",of,b)
+print('cost pages built')
