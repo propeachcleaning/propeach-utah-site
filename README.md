@@ -19,3 +19,9 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 - 2026-10-11: How It Works step 3: removed 'we guarantee your satisfaction every time' -> 24-hour free touch-up wording.
 - 2026-10-11: Replaced the AI-generated cleaner image/video under 'Our Cleans' with the Pro Peach logomark (owner didn't like the fake cleaner). Deleted images/cleaner.jpg and cleaner.mp4.
 - 2026-10-11: Business name standardized to 'Pro Peach Cleaning' everywhere (was 'ProPeach Cleaning Utah' in alt text/copyright/schema). Legal name 'Pro Peach Cleaning, LLC' only in copyright/legal. Customer review quotes left verbatim.
+
+### 2026-10-11 — Pro Peach logo set + trust chips
+- New logo set built on Sparkle Squad's layout (same font, spacing, cart): nav cream cart (36px), hero white wordmark (25vw / 50vw mobile), "Our Cleans" cart logomark (40%), footer peach wordmark.
+- New favicon.png / favicon.ico / apple-touch-icon.png; schema `logo` now images/pro-peach-logo-512.png.
+- Footer "Licensed, Bonded & Insured" badge image replaced by Sparkle-style trust chips (Bonded & Insured, Background-Checked, 24-Hour Free Touch-Up).
+- Photos unchanged: Utah keeps its own photos (no Sparkle imagery).
