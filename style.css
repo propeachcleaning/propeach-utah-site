@@ -2830,3 +2830,25 @@ footer.pp-main-footer{background:#fff;color:#333;padding:24px 0 36px;font-family
 }
 .pp-footer .pp-founded{margin:5px 0 0;font-family:Oswald,"Arial Narrow",sans-serif;font-size:20px;font-weight:700;line-height:1.2;color:var(--pp-peach);text-transform:uppercase}
 .reviews-right{margin:2.5rem 5vw 2.5rem 0;border-radius:24px;overflow:hidden}
+
+/* ---- Header usability (2026-10-13) ---- */
+/* Services menu opens on hover on desktop, like the Georgia site */
+@media (min-width: 769px) and (hover: hover) {
+  .site-nav .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; }
+  .site-nav .dropdown > .dropdown-menu { top: 100%; left: 0; }
+  .site-nav .dropdown-toggle { cursor: pointer; }
+}
+.site-nav .nav-ga { opacity: .85; }
+/* Fit the extra links on small laptops/tablets */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-list { gap: 1.25rem; }
+  .nav-list a, .site-nav .nav-link { letter-spacing: .08em; font-size: .78rem; }
+}
+/* Failsafe: never let the page loader cover the site if the animation script is blocked */
+.page-loader { animation: ppLoaderOut .6s ease 1.5s forwards; }
+@keyframes ppLoaderOut { to { opacity: 0; visibility: hidden; } }
+.logoreview-link{display:inline-flex;transition:transform .2s ease,opacity .2s ease}
+.logoreview-link:hover{transform:translateY(-2px);opacity:.85}
+/* Dropdown items were inheriting the white nav-link color (invisible on cream) */
+.site-nav .dropdown-menu .dropdown-item{color:#3d3530;display:block}
+.site-nav .dropdown-menu .dropdown-item:hover,.site-nav .dropdown-menu .dropdown-item:focus{color:#e8826f;background:rgba(232,130,111,.12)}
