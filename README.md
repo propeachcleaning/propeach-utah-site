@@ -46,3 +46,8 @@ The main Atlanta site (propeachcleaning.com) is WordPress and is not in this rep
 ### 2026-10-11 — Salt Lake City cost pages (prices live ONLY here, like Sparkle)
 - house-cleaning-cost-, deep-cleaning-cost-, move-out-cleaning-cost-, office-cleaning-cost-salt-lake-city (mirrors Sparkle's Miami cost pages).
 - Prices = Pro Peach BookingKoala ladder read 2026-10-11 (standard 149/189/219/…/429+; deep +$50; move +$100). If BookingKoala prices change, update STANDARD in tools/areas.py and rebuild.
+
+### 2026-10-15 — Match propeachcleaning.com (GA) look
+- `tools/ga_match.py` applies GA's brand fonts (Adobe kit shi6pzx: neuzeit-grotesk / neuzeit-grotesk-extra-conden), GA coral #FF978C + cream #FFF6EF, GA-style nav (normal-case Oswald, plain Book Now, Contact -> #contact), outline buttons and GA footer styling. Idempotent: re-run it after any page generator (build_areas.py, patch_nav).
+- `tools/build_ba.py` places the before/after card above "Our locations" (same order as GA).
+- Yelp icon linked + Yelp in schema sameAs. Hosting is GitHub Pages (not Netlify).

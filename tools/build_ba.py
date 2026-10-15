@@ -39,6 +39,8 @@ for name, (keys, sub) in PAGES.items():
     h = re.sub(r'\n?<section class="ppba".*?<!-- /ppba -->', '', h, flags=re.S)
     block = "\n" + card(keys, sub)
     if "<!-- /ppq -->" in h: h = h.replace("<!-- /ppq -->", "<!-- /ppq -->" + block, 1)
+    elif '<section class="pp-footer"' in h:   # above "Our locations", same order as GA
+        i = h.find('<section class="pp-footer"'); h = h[:i] + block.lstrip("\n") + "\n    " + h[i:]
     else:
         i = h.rfind("</main>"); h = h[:i] + block + "\n" + h[i:]
     f.write_text(h); print("ok", name)
