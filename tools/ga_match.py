@@ -30,7 +30,7 @@ body{font-weight:400}
 h1,h2,h3,h4{font-family:%(H)s;font-weight:700}
 /* top bar = GA navbar: coral, white Oswald 16px, normal case, plain-text Book Now */
 header{background:#FF978C}
-.site-nav .nav-list>li>a,.site-nav .nav-link{font-family:Oswald,sans-serif!important;font-size:16px!important;font-weight:400!important;text-transform:none!important;letter-spacing:normal!important;color:#fff!important}
+.site-nav .nav-list>li>a,.site-nav .nav-link{font-family:Oswald,sans-serif!important;font-size:14px!important;font-weight:400!important;text-transform:none!important;letter-spacing:normal!important;color:#fff!important}
 .site-nav .nav-book-btn{background:transparent!important;border:0!important;padding:0!important;border-radius:0!important;box-shadow:none!important}
 /* buttons = GA primarybutton: outline, Oswald, small radius */
 .btn-primary{background:transparent!important;color:#fff!important;border:1.5px solid #fff!important;border-radius:6px!important;font-family:Oswald,sans-serif!important;font-weight:400!important;font-size:15px!important;letter-spacing:normal!important;text-transform:none!important;padding:10px 22px!important}
@@ -65,6 +65,7 @@ section.ppba{max-width:none;margin:0;background:#FFF6EF;padding:48px max(20px,ca
 .services-avail-hours,.services-availability .avail-phone{font-family:%(H)s!important;font-size:16px!important;font-weight:700!important;letter-spacing:-.5px!important;color:#FF978C!important;line-height:1.4}
 .services-availability .avail-phone{text-decoration:underline}
 @media (max-width:768px){.svc-card-icon{display:block!important}.svc-card-top::after{content:none!important}.services-availability{margin:1rem 1.5rem 0!important}}
+@media (min-width:1280px){.site-nav .nav-list>li>a,.site-nav .nav-link{font-size:16px!important}}
 /* /ga-match */
 ''' % {'H': H, 'B': B}
     f.write_text(s)
@@ -84,6 +85,15 @@ def html():
         if "'>PRICES</a>" not in h:
             h = h.replace("            <a href='/faq'>FAQ</a>\n", "            <a href='/faq'>FAQ</a>\n            <a href='/house-cleaning-cost-salt-lake-city'>PRICES</a>\n", 1)
         h = h.replace('Available 8AM \u2013 8PM EST', 'Available 8AM \u2013 8PM MT')   # Utah is Mountain Time
+        # top bar = GA order: Services, FAQ, Partners, Espanol | logo | Georgia, Log In, Contact, Service Areas, Book Now
+        h = h.replace("            <li><a href='/faq'>FAQ</a></li>\n            <li><a href='/service-areas'>Service Areas</a></li>\n",
+                      "            <li><a href='/faq'>FAQ</a></li>\n            <li><a href=\"https://propeachcleaning.com/partners\">Partners</a></li>\n            <li><a href=\"https://propeachcleaning.com/limpieza-de-casas-atlanta\" lang=\"es\">Espa&ntilde;ol</a></li>\n")
+        if "<li><a href='/service-areas'>Service Areas</a></li>" not in h:
+            h = h.replace('            <li><a href="#contact">Contact</a></li>\n', '            <li><a href="#contact">Contact</a></li>\n            <li><a href=\'/service-areas\'>Service Areas</a></li>\n', 1)
+        # phone menu: GA items too (Contact, Partners, Espanol)
+        if 'class="mobile-menu-contact"' not in h:
+            h = h.replace("          <a href='/faq'>FAQ</a>\n          <a href=\"https://propeachcleaning.bookingkoala.com/login\"",
+                          "          <a href='/faq'>FAQ</a>\n          <a href=\"#contact\" class=\"mobile-menu-contact\">Contact</a>\n          <a href=\"https://propeachcleaning.com/partners\">Partners</a>\n          <a href=\"https://propeachcleaning.com/limpieza-de-casas-atlanta\" lang=\"es\">Espa&ntilde;ol</a>\n          <a href=\"https://propeachcleaning.bookingkoala.com/login\"", 1)
         # inline page styles: same coral
         h = re.sub(r'(<style>[^<]*?)</style>', lambda m: re.sub(r'#(F27D72|e8826f)\b', '#FF978C', m.group(0), flags=re.I) if 'ppq' not in m.group(0) and 'ppba' not in m.group(0) else m.group(0), h)
         if h != o: f.write_text(h); print('updated', f.name)
