@@ -373,7 +373,7 @@ header {
 /* ---- HERO ---- */
 .hero {
   min-height: 100vh;
-  background-image: url("images/hero.jpg");
+  background-image: url("images/pro-peach-utah-living-room-hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -391,7 +391,7 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   pointer-events: none;
 }
 
