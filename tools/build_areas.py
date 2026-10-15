@@ -12,7 +12,7 @@ AREAS=["Salt Lake City","Millcreek","Holladay","Murray","Cottonwood Heights","So
 lb=json.loads(re.search(r'<script type="application/ld\+json">(\{"@context": "https://schema.org", "@type": \["LocalBusiness".*?)</script>',head).group(1))
 lb["areaServed"]=[{"@type":"City","name":n+", UT"} if n!="Sugar House" else {"@type":"Place","name":"Sugar House, Salt Lake City, UT"} for n in AREAS]
 lb["priceRange"]="$$"
-lb["slogan"]="Immaculate results, every time"
+lb["slogan"]="Licensed, insured & background-checked house cleaning"
 lb["knowsLanguage"]=["en","es"] if False else lb.get("knowsLanguage")
 lb.pop("knowsLanguage",None)
 head=re.sub(r'(<script type="application/ld\+json">)\{"@context": "https://schema.org", "@type": \["LocalBusiness".*?(</script>)',lambda m:m.group(1)+json.dumps(lb,ensure_ascii=False)+m.group(2),head,count=1)

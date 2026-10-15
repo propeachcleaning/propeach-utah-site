@@ -27,7 +27,7 @@ NAV='''<header>
         </div>
         <div class="nav-center">
           <a href='/'><img
-              src="images/pro-peach-logomark-nav.png"
+              src="images/pro-peach-cart-cream.png"
               alt="Pro Peach Cleaning"
               class="logo"
           /></a>
