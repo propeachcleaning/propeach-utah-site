@@ -13,7 +13,6 @@ SUB = {"home": "Real photos from real cleanings. No filters, no stock photos, ju
        "res": "Real photos from real cleanings. The grime that builds up where nobody looks is exactly where our checklist goes.",
        "com": "Real photos from real cleanings. No filters, no stock photos."}
 PAGES = {
- "index.html": (["oven", "fridge", "shower", "stove"], "home"),
  "services-residential.html": (["glass", "fridge", "shower", "stove"], "res"),
  "airbnb-cleaning-salt-lake-city.html": (["shower", "fridge"], "res"),
  "services-commercial.html": (["office", "shower"], "com"),
@@ -34,13 +33,17 @@ def card(keys, sub):
         for k in keys)
     return (f'<section class="ppba" aria-label="Before and After"><div class="ppba-card"><p class="ppba-kicker">Real results</p>'
             f'<h2 class="ppba-title">Before and After</h2><p class="ppba-sub">{SUB[sub]}</p><div class="ppba-grid">{figs}</div></div></section><!-- /ppba -->')
-for name, (keys, sub) in PAGES.items():
-    f = ROOT / name; h = f.read_text()
-    h = re.sub(r'\n?<section class="ppba".*?<!-- /ppba -->', '', h, flags=re.S)
-    block = "\n" + card(keys, sub)
-    if "<!-- /ppq -->" in h: h = h.replace("<!-- /ppq -->", "<!-- /ppq -->" + block, 1)
-    elif '<section class="pp-footer"' in h:   # above "Our locations", same order as GA
-        i = h.find('<section class="pp-footer"'); h = h[:i] + block.lstrip("\n") + "\n    " + h[i:]
-    else:
-        i = h.rfind("</main>"); h = h[:i] + block + "\n" + h[i:]
-    f.write_text(h); print("ok", name)
+def main():
+  for name, (keys, sub) in PAGES.items():
+      f = ROOT / name; h = f.read_text()
+      h = re.sub(r'\n?<section class="ppba".*?<!-- /ppba -->', '', h, flags=re.S)
+      block = "\n" + card(keys, sub)
+      if "<!-- /ppq -->" in h: h = h.replace("<!-- /ppq -->", "<!-- /ppq -->" + block, 1)
+      elif '<section class="pp-footer"' in h:   # above "Our locations", same order as GA
+          i = h.find('<section class="pp-footer"'); h = h[:i] + block.lstrip("\n") + "\n    " + h[i:]
+      else:
+          i = h.rfind("</main>"); h = h[:i] + block + "\n" + h[i:]
+      f.write_text(h); print("ok", name)
+
+if __name__ == '__main__':
+    main()
