@@ -52,6 +52,19 @@ section.ppba{max-width:none;margin:0;background:#FFF6EF;padding:48px max(20px,ca
 .mobile-menu .mobile-menu-atl{color:#FFF6EF!important;font-size:0.82rem!important;letter-spacing:0.15em!important;font-weight:600!important}
 /* phone menu Book Now: GA outline button (was yellow; coral-on-coral after the color swap) */
 .mobile-menu .mobile-menu-book{background:transparent!important;border:1.5px solid #FFF6EF!important;color:#FFF6EF!important;border-radius:6px!important;text-align:center;margin-top:10px}
+/* "Our Cleans" = GA section: condensed cream titles, small uppercase body, no hover box, GA call card */
+.svc-card,.svc-card:hover{background:transparent!important;transform:none!important;box-shadow:none!important}
+.services-preview{padding-top:4rem!important;padding-bottom:2.5rem!important}
+.svc-card{padding:1rem 1.6rem .4rem!important;gap:.55rem!important}
+.svc-card-icon{width:40px;height:40px;color:#FFF6EF!important;stroke-width:1.25}
+.svc-card-name{font-family:%(H)s!important;font-size:28px!important;font-weight:700!important;letter-spacing:-1px!important;line-height:1!important;text-transform:uppercase;color:#FFF6EF!important}
+.svc-card-desc{font-family:%(H)s!important;font-size:14px!important;font-weight:400!important;line-height:1.2!important;letter-spacing:0!important;text-transform:uppercase;color:rgba(255,246,239,.6)!important}
+.services-availability{background:#FFF6EF!important;border:0!important;border-radius:10px 10px 10px 80px!important;padding:22px 28px 22px 40px!important;flex-direction:column;align-items:flex-start!important;gap:4px!important;margin:.8rem 1.6rem 0!important}
+.services-availability .avail-info{display:flex;flex-direction:column;gap:2px}
+.services-avail-label{font-family:%(H)s!important;font-size:24px!important;font-weight:700!important;letter-spacing:0!important;color:#FF978C!important;line-height:1}
+.services-avail-hours,.services-availability .avail-phone{font-family:%(H)s!important;font-size:16px!important;font-weight:700!important;letter-spacing:-.5px!important;color:#FF978C!important;line-height:1.4}
+.services-availability .avail-phone{text-decoration:underline}
+@media (max-width:768px){.svc-card-icon{display:block!important}.svc-card-top::after{content:none!important}.services-availability{margin:1rem 1.5rem 0!important}}
 /* /ga-match */
 ''' % {'H': H, 'B': B}
     f.write_text(s)
@@ -70,6 +83,7 @@ def html():
         h = h.replace("          <a href='/house-cleaning-cost-salt-lake-city'>Prices</a>\n", '')
         if "'>PRICES</a>" not in h:
             h = h.replace("            <a href='/faq'>FAQ</a>\n", "            <a href='/faq'>FAQ</a>\n            <a href='/house-cleaning-cost-salt-lake-city'>PRICES</a>\n", 1)
+        h = h.replace('Available 8AM \u2013 8PM EST', 'Available 8AM \u2013 8PM MT')   # Utah is Mountain Time
         # inline page styles: same coral
         h = re.sub(r'(<style>[^<]*?)</style>', lambda m: re.sub(r'#(F27D72|e8826f)\b', '#FF978C', m.group(0), flags=re.I) if 'ppq' not in m.group(0) and 'ppba' not in m.group(0) else m.group(0), h)
         if h != o: f.write_text(h); print('updated', f.name)
