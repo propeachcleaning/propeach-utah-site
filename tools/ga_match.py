@@ -48,6 +48,10 @@ footer.pp-main-footer,.pp-footer{background:#FFF6EF}
 /* before/after band on cream like GA */
 section.ppba{max-width:none;margin:0;background:#FFF6EF;padding:48px max(20px,calc((100%% - 1080px)/2)) 8px}
 @media (max-width:767px){section.ppba{padding:28px 14px 4px}}
+/* phone menu: Georgia link full strength like the other items */
+.mobile-menu .mobile-menu-atl{color:#FFF6EF!important;font-size:0.82rem!important;letter-spacing:0.15em!important;font-weight:600!important}
+/* phone menu Book Now: GA outline button (was yellow; coral-on-coral after the color swap) */
+.mobile-menu .mobile-menu-book{background:transparent!important;border:1.5px solid #FFF6EF!important;color:#FFF6EF!important;border-radius:6px!important;text-align:center;margin-top:10px}
 /* /ga-match */
 ''' % {'H': H, 'B': B}
     f.write_text(s)
@@ -61,6 +65,11 @@ def html():
         h = h.replace('<li><a href="tel:+13852179244">Call</a></li>', '<li><a href="#contact">Contact</a></li>')
         h = h.replace('<div class="pp-hours">', '<div class="pp-hours" id="contact">')
         h = re.sub(r'#fffee2\b', '#FFF6EF', h, flags=re.I)   # inline creams (ppq wrap bands, 404) -> GA cream
+        # Prices: GA/SS have no Prices in the top bar or phone menu -> footer link row instead
+        h = h.replace("            <li><a href='/house-cleaning-cost-salt-lake-city'>Prices</a></li>\n", '')
+        h = h.replace("          <a href='/house-cleaning-cost-salt-lake-city'>Prices</a>\n", '')
+        if "'>PRICES</a>" not in h:
+            h = h.replace("            <a href='/faq'>FAQ</a>\n", "            <a href='/faq'>FAQ</a>\n            <a href='/house-cleaning-cost-salt-lake-city'>PRICES</a>\n", 1)
         # inline page styles: same coral
         h = re.sub(r'(<style>[^<]*?)</style>', lambda m: re.sub(r'#(F27D72|e8826f)\b', '#FF978C', m.group(0), flags=re.I) if 'ppq' not in m.group(0) and 'ppba' not in m.group(0) else m.group(0), h)
         if h != o: f.write_text(h); print('updated', f.name)

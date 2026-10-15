@@ -2891,4 +2891,8 @@ footer.pp-main-footer,.pp-footer{background:#FFF6EF}
 /* before/after band on cream like GA */
 section.ppba{max-width:none;margin:0;background:#FFF6EF;padding:48px max(20px,calc((100% - 1080px)/2)) 8px}
 @media (max-width:767px){section.ppba{padding:28px 14px 4px}}
+/* phone menu: Georgia link full strength like the other items */
+.mobile-menu .mobile-menu-atl{color:#FFF6EF!important;font-size:0.82rem!important;letter-spacing:0.15em!important;font-weight:600!important}
+/* phone menu Book Now: GA outline button (was yellow; coral-on-coral after the color swap) */
+.mobile-menu .mobile-menu-book{background:transparent!important;border:1.5px solid #FFF6EF!important;color:#FFF6EF!important;border-radius:6px!important;text-align:center;margin-top:10px}
 /* /ga-match */
