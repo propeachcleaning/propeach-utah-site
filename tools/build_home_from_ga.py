@@ -145,7 +145,7 @@ def build():
     # ---- body
     for url in set(re.findall(r'src="(https://(?:cdn\.prod\.website-files\.com/[^"]+/js/webflow[^"]+|d3e54v103j8qbb\.cloudfront\.net/js/jquery[^"]+))"', body)):
         body = body.replace(url, vendor(url))
-    body = re.sub(r'<script[^>]*src="/[^"]*"[^>]*></script>', '', body)
+    body = re.sub(r'<script[^>]*src="/(?!vendor/)[^"]*"[^>]*></script>', '', body)   # GA-relative scripts (keep our /vendor copies)
     body = re.sub(r'<script>\s*/\* Language switch.*?</script>', '', body, flags=re.S)
     body = re.sub(r'\s*data-turnstile-sitekey="[^"]*"', '', body)
     body, atl_card = protect(body)
