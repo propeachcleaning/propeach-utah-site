@@ -182,11 +182,16 @@ def convert(src, meta, page_hook=None, extra_head=''):
     ]
     for a, b in rep:
         body = re.sub(a, b, body)
-    # Business facts box (GA footer) -> Utah facts; keep GA's <style>, inserted after link mapping
-    m_f = re.search(r'(<section class="pp-facts"[^>]*>)(<style>.*?</style>)?.*?</section>', body, re.S)
-    facts_html = UT_FACTS.replace('<h2 id="pp-facts-h">', (m_f.group(2) or '') + '<h2 id="pp-facts-h">', 1) if m_f else ''
-    if m_f:
-        body = body.replace(m_f.group(0), '@@UTFACTS@@')
+    # Business facts boxes (homepage card + footer copy) -> Utah facts; keep GA's tag classes + <style>;
+    # put back after link mapping so Utah links stay Utah
+    ut_inner = re.search(r'(<h2.*</dl>)', UT_FACTS, re.S).group(1)
+    facts_blocks = []
+    def _facts(m):
+        open_tag, style = m.group(1), m.group(2) or ''
+        inner = ut_inner if 'pp-facts-h' in open_tag else ut_inner.replace('<h2 id="pp-facts-h">', '<h2>')
+        facts_blocks.append(open_tag + style + inner + '</section>')
+        return '@@UTFACTS%d@@' % (len(facts_blocks) - 1)
+    body = re.sub(r'(<section class="pp-facts[^"]*"[^>]*>)(<style>.*?</style>)?.*?</section>', _facts, body, flags=re.S)
     if page_hook:
         body = page_hook(body)
 
@@ -209,7 +214,8 @@ def convert(src, meta, page_hook=None, extra_head=''):
 
     if atl_card:
         body = body.replace('@@ATLCARD@@', atl_card)
-    body = body.replace('@@UTFACTS@@', facts_html)
+    for i, b in enumerate(facts_blocks):
+        body = body.replace('@@UTFACTS%d@@' % i, b)
     body = body.replace('</body>', FORM_JS + '\n</body>')
     return '<!DOCTYPE html>\n<!-- Built from propeachcleaning.com by tools/build_*_from_ga.py. Edit GA (or the script), then re-run. -->\n' \
           + html_tag + '<head>' + head + '</head>' + body
