@@ -46,4 +46,5 @@ def main():
       f.write_text(h); print("ok", name)
 
 if __name__ == '__main__':
-    main()
+    # Pages are now generated from GA (tools/build_pages_from_ga.py embeds these sets). Kept as data only.
+    print('build_ba.py is data-only now; run tools/build_pages_from_ga.py')

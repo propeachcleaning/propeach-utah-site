@@ -19,7 +19,7 @@ GA_CID, UT_CID = 'cid=16449210000793791146', 'cid=8996771839070111800'
 
 # Utah photos (never shared with GA). Reviews + H1-banner photos are owner-locked.
 IMG = {
-    'hero': '/images/pro-peach-utah-living-room-real.jpg',          # real job photo
+    'hero': '/images/pro-peach-utah-spacious-living-room-hero.jpg',  # owner pick 2026-10-15 (Pexels 5570229)
     'h1banner': '/images/pro-peach-utah-clean-living-room-windows.jpg',  # owner-locked
     'section3': '/images/utah-3.jpg',                               # real Utah hallway
     'reviews': '/images/pro-peach-utah-bright-living-room.jpg',     # owner-locked
@@ -36,11 +36,11 @@ def vendor(url):
     (ROOT / 'vendor' / name).write_bytes(get(url))
     return '/vendor/' + name
 
-def utah_head_meta():
-    """Title, description, canonical, OG/Twitter, favicons and JSON-LD from the previous Utah homepage."""
-    old = (ROOT / 'tools' / 'legacy-index.html').read_text()
+def utah_head_meta(legacy='legacy-index.html'):
+    """Title, description, canonical, OG/Twitter, favicons and JSON-LD from a legacy (hand-built) Utah page."""
+    old = (ROOT / 'tools' / legacy).read_text() if '/' not in legacy else pathlib.Path(legacy).read_text()
     head = old[old.find('<head>'):old.find('</head>')]
-    keep = re.findall(r'<title>.*?</title>|<meta (?:name="(?:description|twitter:[^"]+)"|property="og:[^"]+")[^>]*>|'
+    keep = re.findall(r'<title>.*?</title>|<meta (?:name="(?:description|robots|twitter:[^"]+)"|property="og:[^"]+")[^>]*>|'
                       r'<link rel="(?:canonical|icon|apple-touch-icon)"[^>]*>|<script type="application/ld\+json">.*?</script>',
                       head, flags=re.S)
     meta = '\n'.join(keep)
@@ -48,14 +48,13 @@ def utah_head_meta():
     meta = meta.replace('href="favicon', 'href="/favicon').replace('href="apple-touch', 'href="/apple-touch')
     return meta
 
-def ppba_html():
+def ppba_html(keys=('oven', 'fridge', 'shower', 'stove'), sub='home'):
     """Utah before/after card in GA's embed markup (inline CSS, like the GA embed)."""
     sys.path.insert(0, str(ROOT / 'tools'))
     import build_ba as ba
     ga_ppba = ROOT.parent / 'pro-peach-ga-webflow' / 'ppba.py'
     css = re.search(r"CSS = \((.*?)\)\nSUB", ga_ppba.read_text(), re.S)
     css = eval('(' + css.group(1) + ')') if css else ''
-    keys = ['oven', 'fridge', 'shower', 'stove']
     figs = ''.join(
         f'<figure class="ppba-pair"><div class="ppba-ba">'
         f'<div class="ppba-shot"><span class="ppba-tag">Before</span><img src="/images/ba/{ba.P[k][1]}-before.webp" width="520" height="693" alt="Before a Pro Peach cleaning: {ba.P[k][2]}" loading="lazy" decoding="async"></div>'
@@ -63,7 +62,7 @@ def ppba_html():
         f'</div><figcaption><b>{ba.P[k][0]}</b></figcaption></figure>' for k in keys)
     return (f'<div class="ppba" style="padding-top:48px">{css}<section class="ppba-card" aria-label="Before and After">'
             f'<p class="ppba-kicker">Real results</p><h2 class="ppba-title">Before and After</h2>'
-            f'<p class="ppba-sub">{ba.SUB["home"]}</p><div class="ppba-grid">{figs}</div></section></div>')
+            f'<p class="ppba-sub">{ba.SUB[sub]}</p><div class="ppba-grid">{figs}</div></section></div>')
 
 LOC = '''<section class="loc-section"><div class="loc-wrap"><h2 class="loc-h2">House Cleaning Services in Salt Lake City &amp; the Salt Lake Valley</h2><p class="loc-p">Pro Peach Cleaning is a women-, veteran- and Latino-owned house cleaning company serving Salt Lake City and the surrounding valley. Pick the clean that fits your home: <a href="/services-residential" class="loc-link">standard cleaning</a> for recurring upkeep, <a href="/deep-cleaning-salt-lake-city" class="loc-link">deep cleaning</a> for a top-to-bottom reset, <a href="/move-out-cleaning-salt-lake-city" class="loc-link">move-in / move-out cleaning</a> for empty homes, and <a href="/airbnb-cleaning-salt-lake-city" class="loc-link">Airbnb and vacation rental cleaning</a> between guests. See <a href="/house-cleaning-cost-salt-lake-city" class="loc-link">what house cleaning costs in Salt Lake City</a>.</p><h2 class="loc-h2">Popular Areas We Clean</h2><p class="loc-p"><a href="/house-cleaning-salt-lake-city" class="loc-link">Salt Lake City</a> · <a href="/house-cleaning-sugar-house" class="loc-link">Sugar House</a> · <a href="/house-cleaning-millcreek-ut" class="loc-link">Millcreek</a> · <a href="/house-cleaning-holladay-ut" class="loc-link">Holladay</a> · <a href="/house-cleaning-murray-ut" class="loc-link">Murray</a> · <a href="/house-cleaning-cottonwood-heights-ut" class="loc-link">Cottonwood Heights</a> · <a href="/house-cleaning-south-salt-lake-ut" class="loc-link">South Salt Lake</a> · <a href="/service-areas" class="loc-link">All service areas</a></p><h2 class="loc-h2">Moving, Hosting or Running a Business?</h2><p class="loc-p">See <a href="/move-out-cleaning-cost-salt-lake-city" class="loc-link">move-out cleaning cost</a>, <a href="/deep-cleaning-cost-salt-lake-city" class="loc-link">deep cleaning cost</a> and <a href="/office-cleaning-cost-salt-lake-city" class="loc-link">office cleaning cost</a>. Also serving <a href="https://propeachcleaning.com/" class="loc-link">metro Atlanta, Georgia</a>.</p></div></section>'''
 
@@ -123,8 +122,8 @@ def protect(body):
             return '<div class="pp-loc-card">'.join(parts), card
     return body, None
 
-def build():
-    src = get(GA + '/').decode('utf-8')
+def convert(src, meta, page_hook=None, extra_head=''):
+    """Common GA -> Utah transform: GA frame (head CSS/JS, nav, footer, popups) with Utah identity, phone, links, forms."""
     head = src[src.find('<head>') + 6:src.find('</head>')]
     body = src[src.find('</head>') + 7:]
     html_tag = re.search(r'<html[^>]*>', src).group(0).replace('data-wf-domain="propeachcleaning.com"', 'data-wf-domain="utah.propeachcleaning.com"')
@@ -140,7 +139,7 @@ def build():
     head = re.sub(r'<script>\(function\(w,i,g\).*?</script>|<script[^>]*GT-WBZ56PJP[^>]*></script>|<script>[^<]*GT-WBZ56PJP[^<]*</script>', '', head, flags=re.S)
     for url in set(re.findall(r'href="(https://cdn\.prod\.website-files\.com/[^"]+\.css)"', head)):
         head = head.replace(url, vendor(url))
-    head = '<meta charset="utf-8"/>\n' + utah_head_meta() + '\n' + head + '\n' + CSS_UT
+    head = '<meta charset="utf-8"/>\n' + meta + '\n' + head + '\n' + CSS_UT + extra_head
 
     # ---- body
     for url in set(re.findall(r'src="(https://(?:cdn\.prod\.website-files\.com/[^"]+/js/webflow[^"]+|d3e54v103j8qbb\.cloudfront\.net/js/jquery[^"]+))"', body)):
@@ -170,7 +169,8 @@ def build():
     ]
     for a, b in rep:
         body = re.sub(a, b, body)
-    body = re.sub(r'<section class="loc-section">.*?</section>', LOC, body, flags=re.S)
+    if page_hook:
+        body = page_hook(body)
 
     # Google reviews -> Utah profile (honest badge text); Atlanta card stays Atlanta (protected)
     body = body.replace(GA_CID, UT_CID).replace('4.9 from 100+ Google reviews', 'Salt Lake City reviews on Google')
@@ -183,24 +183,34 @@ def build():
     # links
     body = re.sub(r'href="(/[^"#?]*)"', lambda m: f'href="{LINKS.get(m.group(1).rstrip("/") or "/", GA + m.group(1))}"', body)
 
-    # photos
+    # photos (homepage reviews image; harmless elsewhere)
     body = re.sub(r'src="[^"]*atlanta-move-out-cleaning-hardwood[^"]*"', f'src="{IMG["reviews"]}"', body)
     body = re.sub(r'(<img[^>]*src="' + re.escape(IMG['reviews']) + r'"[^>]*?)\s+srcset="[^"]*"', r'\1', body)
     body = re.sub(r'(<img[^>]*src="' + re.escape(IMG['reviews']) + r'"[^>]*?)\s+sizes="[^"]*"', r'\1', body)
     body = re.sub(r'(<img[^>]*src="' + re.escape(IMG['reviews']) + r'"[^>]*?)alt="[^"]*"', r'\1alt="Bright, freshly cleaned living room"', body)
-    body = re.sub(r'<div class="ppba".*?</section></div>', lambda m: ppba_html(), body, count=1, flags=re.S)
 
     if atl_card:
         body = body.replace('@@ATLCARD@@', atl_card)
     body = body.replace('</body>', FORM_JS + '\n</body>')
-    out = '<!DOCTYPE html>\n<!-- Built by tools/build_home_from_ga.py from propeachcleaning.com. Edit GA, then re-run. -->\n' \
+    return '<!DOCTYPE html>\n<!-- Built from propeachcleaning.com by tools/build_*_from_ga.py. Edit GA (or the script), then re-run. -->\n' \
           + html_tag + '<head>' + head + '</head>' + body
-    (ROOT / 'index.html').write_text(out)
-    for f in (ROOT / 'vendor').iterdir():          # drop vendored files GA no longer uses
-        if '/vendor/' + f.name not in out:
+
+def prune_vendor():
+    """Drop vendored files no built page references any more."""
+    used = ''.join(f.read_text() for f in ROOT.glob('*.html'))
+    for f in (ROOT / 'vendor').iterdir():
+        if '/vendor/' + f.name not in used:
             f.unlink()
 
-    # sanity report
+def home_hook(body):
+    body = re.sub(r'<section class="loc-section">.*?</section>', LOC, body, flags=re.S)
+    return re.sub(r'<div class="ppba".*?</section></div>', lambda m: ppba_html(), body, count=1, flags=re.S)
+
+def build():
+    out = convert(get(GA + '/').decode('utf-8'), utah_head_meta(), home_hook)
+    (ROOT / 'index.html').write_text(out)
+    prune_vendor()
+    body = out[out.find('<body'):]
     left = {k: len(re.findall(k, body)) for k in ['Atlanta', '470', 'atlanta', 'Savannah']}
     print('index.html', len(out), 'bytes; remaining mentions:', left)
 
