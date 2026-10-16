@@ -196,6 +196,9 @@ def build():
     out = '<!DOCTYPE html>\n<!-- Built by tools/build_home_from_ga.py from propeachcleaning.com. Edit GA, then re-run. -->\n' \
           + html_tag + '<head>' + head + '</head>' + body
     (ROOT / 'index.html').write_text(out)
+    for f in (ROOT / 'vendor').iterdir():          # drop vendored files GA no longer uses
+        if '/vendor/' + f.name not in out:
+            f.unlink()
 
     # sanity report
     left = {k: len(re.findall(k, body)) for k in ['Atlanta', '470', 'atlanta', 'Savannah']}

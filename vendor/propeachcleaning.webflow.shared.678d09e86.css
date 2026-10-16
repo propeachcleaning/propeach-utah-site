@@ -3004,6 +3004,14 @@ body {
   background-color: #0006;
 }
 
+.overlay.leftaligned.h1overlay {
+  background-color: #0000006b;
+  width: 100%;
+  height: 100%;
+  padding-left: 8vw;
+  padding-right: 8vw;
+}
+
 .header {
   color: #fff2ea;
   text-align: center;
@@ -3041,8 +3049,16 @@ body {
 }
 
 .header.h3.leftalignedtext.homepage {
-  color: var(--white);
+  color: #fff6ef;
   text-align: left;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.1;
 }
 
 .header.h3.serviceh1 {
@@ -3157,6 +3173,11 @@ body {
 
 .leftcolumn {
   position: relative;
+}
+
+.leftcolumn.h1column {
+  width: 100%;
+  max-width: 900px;
 }
 
 .stickysection {
@@ -4589,8 +4610,10 @@ body {
 }
 
 .loc-section {
-  background-color: #fff2ea;
+  z-index: 10;
+  background-color: #fff6ef;
   padding: 48px 16px 64px;
+  position: relative;
 }
 
 .loc-wrap {
@@ -5084,6 +5107,23 @@ body {
   line-height: 18px;
 }
 
+.ppba-wrap {
+  z-index: 10;
+  background-color: #fff6ef;
+  position: relative;
+}
+
+.h1-kicker {
+  color: #fff6ef;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+  font-family: neuzeit-grotesk-extra-conden, Oswald, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
 @media screen and (min-width: 1440px) {
   .image {
     width: auto;
@@ -5215,6 +5255,11 @@ body {
 
   .header.h3.leftaligned.longtext {
     font-size: 2.5vw;
+  }
+
+  .header.h3.leftalignedtext.homepage {
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    line-height: 1.1;
   }
 
   .header.h4 {
@@ -6728,6 +6773,13 @@ body {
   .header.h3.leftalignedtext {
     text-align: left;
     line-height: 28px;
+  }
+
+  .header.h3.leftalignedtext.homepage {
+    text-align: left;
+    width: 100%;
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    line-height: 1.1;
   }
 
   .header.h4 {
