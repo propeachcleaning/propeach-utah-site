@@ -72,6 +72,19 @@ FOOT_HOURS = ('Open 7 days a week, 8 AM to 8 PM. Pro Peach Cleaning serves homes
               'plus Georgia from metro Atlanta to the Athens &amp; UGA area, out to metro Savannah and metro Augusta. '
               'We come to you, so there’s no storefront to visit. Questions? Email clean@propeachcleaning.com.')
 
+UT_FACTS = ('<section class="pp-facts" aria-labelledby="pp-facts-h"><h2 id="pp-facts-h">Business facts</h2><dl>'
+    '<dt>Business name</dt><dd>Pro Peach Cleaning</dd>'
+    '<dt>What we do</dt><dd>Residential and commercial cleaning: recurring house cleaning, deep cleaning, move in and move out cleaning, Airbnb turnovers, office cleaning, and post construction cleaning.</dd>'
+    '<dt>Service areas</dt><dd><a href="/house-cleaning-salt-lake-city">Salt Lake City</a> and the Salt Lake Valley, including <a href="/house-cleaning-sugar-house">Sugar House</a>, <a href="/house-cleaning-millcreek-ut">Millcreek</a>, <a href="/house-cleaning-holladay-ut">Holladay</a>, <a href="/house-cleaning-murray-ut">Murray</a>, <a href="/house-cleaning-cottonwood-heights-ut">Cottonwood Heights</a> and <a href="/house-cleaning-south-salt-lake-ut">South Salt Lake</a>. Also serving <a href="https://propeachcleaning.com/">metro Atlanta, Georgia</a>.</dd>'
+    '<dt>Hours</dt><dd>Our team answers 8 AM to 8 PM MT every day.</dd>'
+    '<dt>Phone and text</dt><dd><a href="tel:+13852179244">(385) 217-9244</a></dd>'
+    '<dt>Email</dt><dd><a href="mailto:clean@propeachcleaning.com">clean@propeachcleaning.com</a></dd>'
+    '<dt>Pricing</dt><dd>Standard cleaning from $149. Deep cleaning from $199. Move in or move out cleaning from $249. Commercial and post construction are quoted per job.</dd>'
+    '<dt>Reviews</dt><dd>Our Atlanta team is rated 4.9 stars on Google with 100+ reviews. See our <a href="https://maps.google.com/?cid=8996771839070111800" target="_blank" rel="noopener">Salt Lake City reviews on Google</a>.</dd>'
+    '<dt>Trust</dt><dd>Licensed, bonded and insured. Every cleaner is interviewed and passes a background check before their first job.</dd>'
+    '<dt>Ownership</dt><dd>Women, veteran and Latino owned. Serving customers since October 2024.</dd>'
+    '<dt>Please note</dt><dd>We come to you. No walk-ins or customer visits.</dd></dl></section>')
+
 LINKS = {'/': '/', '/services/residential': '/services-residential', '/services/commercial': '/services-commercial',
          '/services/construction': '/services-construction', '/services/airbnb-cleaning': '/airbnb-cleaning-salt-lake-city',
          '/faq/frequently-asked-questions': '/faq', '/service-areas': '/service-areas', '/privacy-policy': '/privacy-policy',
@@ -169,6 +182,11 @@ def convert(src, meta, page_hook=None, extra_head=''):
     ]
     for a, b in rep:
         body = re.sub(a, b, body)
+    # Business facts box (GA footer) -> Utah facts; keep GA's <style>, inserted after link mapping
+    m_f = re.search(r'(<section class="pp-facts"[^>]*>)(<style>.*?</style>)?.*?</section>', body, re.S)
+    facts_html = UT_FACTS.replace('<h2 id="pp-facts-h">', (m_f.group(2) or '') + '<h2 id="pp-facts-h">', 1) if m_f else ''
+    if m_f:
+        body = body.replace(m_f.group(0), '@@UTFACTS@@')
     if page_hook:
         body = page_hook(body)
 
@@ -191,6 +209,7 @@ def convert(src, meta, page_hook=None, extra_head=''):
 
     if atl_card:
         body = body.replace('@@ATLCARD@@', atl_card)
+    body = body.replace('@@UTFACTS@@', facts_html)
     body = body.replace('</body>', FORM_JS + '\n</body>')
     return '<!DOCTYPE html>\n<!-- Built from propeachcleaning.com by tools/build_*_from_ga.py. Edit GA (or the script), then re-run. -->\n' \
           + html_tag + '<head>' + head + '</head>' + body
