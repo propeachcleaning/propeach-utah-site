@@ -76,7 +76,7 @@ UT_FACTS = ('<section class="pp-facts" aria-labelledby="pp-facts-h"><h2 id="pp-f
     '<dt>Business name</dt><dd>Pro Peach Cleaning</dd>'
     '<dt>What we do</dt><dd>Residential and commercial cleaning: recurring house cleaning, deep cleaning, move in and move out cleaning, Airbnb turnovers, office cleaning, and post construction cleaning.</dd>'
     '<dt>Service areas</dt><dd><a href="/house-cleaning-salt-lake-city">Salt Lake City</a> and the Salt Lake Valley, including <a href="/house-cleaning-sugar-house">Sugar House</a>, <a href="/house-cleaning-millcreek-ut">Millcreek</a>, <a href="/house-cleaning-holladay-ut">Holladay</a>, <a href="/house-cleaning-murray-ut">Murray</a>, <a href="/house-cleaning-cottonwood-heights-ut">Cottonwood Heights</a> and <a href="/house-cleaning-south-salt-lake-ut">South Salt Lake</a>. Also serving <a href="https://propeachcleaning.com/">metro Atlanta, Georgia</a>.</dd>'
-    '<dt>Hours</dt><dd>Our team answers 8 AM to 8 PM MT every day.</dd>'
+    '<dt>Hours</dt><dd>Our team answers 8 AM to 8 PM MT every day. After hours, our AI assistant answers and takes your request, so we are available 24/7.</dd>'
     '<dt>Phone and text</dt><dd><a href="tel:+13852179244">(385) 217-9244</a></dd>'
     '<dt>Email</dt><dd><a href="mailto:clean@propeachcleaning.com">clean@propeachcleaning.com</a></dd>'
     '<dt>Pricing</dt><dd>Standard cleaning from $149. Deep cleaning from $199. Move in or move out cleaning from $249. Commercial and post construction are quoted per job.</dd>'
