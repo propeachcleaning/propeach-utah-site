@@ -4610,10 +4610,8 @@ body {
 }
 
 .loc-section {
-  z-index: 10;
   background-color: #fff6ef;
   padding: 48px 16px 64px;
-  position: relative;
 }
 
 .loc-wrap {
@@ -5110,9 +5108,7 @@ body {
 }
 
 .ppba-wrap {
-  z-index: 10;
   background-color: #fff6ef;
-  position: relative;
 }
 
 .h1-kicker {
