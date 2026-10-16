@@ -5097,14 +5097,16 @@ body {
 }
 
 .pp-copyright {
-  color: #6b5c55;
+  color: #5a4a4d;
   text-align: center;
   width: 100%;
-  padding-top: 18px;
-  padding-bottom: 8px;
+  margin-top: 2px;
+  margin-bottom: 0;
+  padding-top: 2px;
+  padding-bottom: 0;
   font-family: neuzeit-grotesk, Helvetica Neue, Arial, sans-serif;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 1.5;
 }
 
 .ppba-wrap {
