@@ -6052,6 +6052,11 @@ body {
     margin-top: 0;
   }
 
+  .container.hero-flow {
+    height: auto;
+    min-height: 100vh;
+  }
+
   .propeachlogo {
     width: 50vw;
   }
@@ -6326,13 +6331,24 @@ body {
     width: 400px;
   }
 
+  .herobg {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 0;
+  }
+
   .herobottom {
+    text-align: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     row-gap: 8px;
+    width: 100%;
     height: auto;
+    margin-top: 20px;
     padding: 12px;
+    position: relative;
+    inset: auto;
   }
 
   .logoreview {
@@ -6345,7 +6361,10 @@ body {
   }
 
   .logoreviewwrapper {
-    padding-left: 20px;
+    flex-grow: 0;
+    flex-basis: auto;
+    justify-content: center;
+    padding-left: 0;
     overflow: hidden;
   }
 
@@ -6891,10 +6910,6 @@ body {
     letter-spacing: -3px;
     font-size: 64px;
     line-height: 64px;
-  }
-
-  .h6.pink {
-    width: 80px;
   }
 
   .textwrapper._100vh {
