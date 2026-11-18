@@ -207,11 +207,32 @@ def ppba_embed(name):
     keys, sub = ba.PAGES[name]
     return '<div class="w-embed">' + bh.ppba_html(tuple(keys), sub) + '</div>'
 
+def quick_quote(home_src):
+    """GA's 'Quick Quote' Webflow form (name, phone, zip) from the GA homepage, Utah phone in its thank-you line.
+    Utah's FORM_JS sends it to the Make webhook like every other Utah form."""
+    i = home_src.find('<div class="pp-qq w-form">')
+    if i == -1:
+        return ''
+    depth, j = 0, i
+    for tag in __import__('re').finditer(r'<(/?)div\b', home_src[i:]):
+        depth += -1 if tag.group(1) else 1
+        if depth == 0:
+            j = i + home_src[i:].find('>', tag.start()) + 1
+            break
+    return home_src[i:j].replace('(470) 412-9977', bh.UT_PHONE).replace('+14704129977', bh.UT_TEL)
+
+QQ = ''
+
 def build_page(name, shell_src):
     legacy_path = LEGACY / name
     legacy = legacy_path.read_text()
     meta = bh.utah_head_meta(str(legacy_path))
     block = main_content(legacy) + ppq_embed(legacy) + ppba_embed(name)
+    if QQ and name.startswith('house-cleaning-') and 'cost' not in name:   # city pages: form under the first quote button
+        k = block.find('class="loc-btn"')
+        if k != -1:
+            k = block.find('</a>', k) + 4
+            block = block[:k] + QQ + block[k:]
 
     def hook(body):   # cut GA's page content (between the top bar spacer and the footer); mark the spot
         i = body.find('<section class="loc-section">')
@@ -233,6 +254,9 @@ def main(names=None):
         if not (LEGACY / n).exists():
             shutil.copy(ROOT / n, LEGACY / n)
     shell = bh.get(bh.GA + SHELL).decode('utf-8')
+    global QQ
+    QQ = quick_quote(bh.get(bh.GA + '/').decode('utf-8'))
+    print('quick quote form:', len(QQ), 'bytes')
     for n in (names or pages):
         build_page(n, shell)
     bh.prune_vendor()
