@@ -20,6 +20,7 @@ GA_CID, UT_CID = 'cid=16449210000793791146', 'cid=8996771839070111800'
 # Utah photos (never shared with GA). Reviews + H1-banner photos are owner-locked.
 IMG = {
     'hero': '/images/pro-peach-utah-spacious-living-room-hero.jpg',  # owner pick 2026-10-15 (Pexels 5570229)
+    'hero_web': '/images/pro-peach-utah-spacious-living-room-hero-1600.webp',  # 106 KB copy of the hero for the page background
     'h1banner': '/images/pro-peach-utah-clean-living-room-windows.jpg',  # owner-locked
     'section3': '/images/utah-3.jpg',                               # real Utah hallway
     'reviews': '/images/pro-peach-utah-bright-living-room.jpg',     # owner-locked
@@ -116,8 +117,8 @@ document.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=
 
 CSS_UT = '''<style id="utah-photos">
 /* Utah photos (GA and Utah never share a photo) */
-.herobg{background-image:linear-gradient(#0006,#0006),url(%(hero)s)!important;background-position:0 0,50%% 55%%!important}
-.herowrapper,.container.herowrapper{background-image:url(%(hero)s)!important}
+.herobg{background-image:linear-gradient(#0006,#0006),url(%(hero_web)s)!important;background-position:0 0,50%% 55%%!important}
+.herowrapper,.container.herowrapper{background-image:url(%(hero_web)s)!important}
 .container.photobg{background-image:url(%(h1banner)s)!important}
 .container.photobg.section1{background-image:none!important}
 .container.photobg.section3,.container.image{background-image:url(%(section3)s)!important}
@@ -232,7 +233,9 @@ def home_hook(body):
     return re.sub(r'<div class="ppba".*?</section></div>', lambda m: ppba_html(), body, count=1, flags=re.S)
 
 def build():
-    out = convert(get(GA + '/').decode('utf-8'), utah_head_meta(), home_hook)
+    # Speed: start the hero download before the stylesheet is parsed
+    preload = f'\n<link rel="preload" as="image" href="{IMG["hero_web"]}" fetchpriority="high"/>'
+    out = convert(get(GA + '/').decode('utf-8'), utah_head_meta(), home_hook, extra_head=preload)
     (ROOT / 'index.html').write_text(out)
     prune_vendor()
     body = out[out.find('<body'):]
