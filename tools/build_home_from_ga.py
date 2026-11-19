@@ -12,6 +12,8 @@ import html as H, json, pathlib, re, sys, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 GA = 'https://propeachcleaning.com'
+import pathlib as _pl
+ROOT_UT = _pl.Path(__file__).resolve().parent.parent
 BK = 'https://propeachcleaning.bookingkoala.com'
 HOOK = 'https://hook.us2.make.com/t86vbbhirzpymcks6jbms4vv1f5xiuo8'
 UT_PHONE, UT_TEL = '(385) 217-9244', '+13852179244'
@@ -93,7 +95,7 @@ LINKS = {'/': '/', '/services/residential': '/services-residential', '/services/
          '/deep-cleaning-atlanta': '/deep-cleaning-salt-lake-city', '/move-out-cleaning-atlanta': '/move-out-cleaning-salt-lake-city',
          '/move-out-cleaning-cost-atlanta': '/move-out-cleaning-cost-salt-lake-city', '/airbnb-cleaning-atlanta': '/airbnb-cleaning-salt-lake-city',
          '/airbnb-cleaning-cost-atlanta': '/airbnb-cleaning-salt-lake-city', '/booknow': BK + '/booknow', '/login': BK + '/login',
-         '/contact': '#contact'}
+         '/contact': '#contact', '/limpieza-de-casas-atlanta': '/limpieza-de-casas-salt-lake-city'}
 
 FORM_JS = '''<script>
 /* Utah: popup + newsletter forms post to Make (GA's Webflow forms only work on propeachcleaning.com). */
@@ -206,7 +208,7 @@ def convert(src, meta, page_hook=None, extra_head=''):
     body = re.sub(r'<a([^>]*?)href="https://utah\.propeachcleaning\.com/"([^>]*)>Also in Utah →</a>', r'<a\1href="' + GA + r'/"\2>Also in Georgia →</a>', body)
 
     # links
-    body = re.sub(r'href="(/[^"#?]*)"', lambda m: f'href="{LINKS.get(m.group(1).rstrip("/") or "/", GA + m.group(1))}"', body)
+    body = re.sub(r'href="(/[^"#?]*)"', lambda m: f'href="{LINKS.get(m.group(1).rstrip("/") or "/", m.group(1) if (ROOT_UT / (m.group(1).strip("/") + ".html")).exists() else GA + m.group(1))}"', body)
 
     # photos (homepage reviews image; harmless elsewhere)
     body = re.sub(r'src="[^"]*atlanta-move-out-cleaning-hardwood[^"]*"', f'src="{IMG["reviews"]}"', body)
