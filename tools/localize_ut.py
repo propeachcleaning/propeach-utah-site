@@ -224,6 +224,9 @@ def new_page(key, d):
     s = re.sub(r'<ul class="pp-hoods">.*?</ul>', '<ul class="pp-hoods">' + ''.join(f'<li>{e(h)}</li>' for h in d['hoods']) + '</ul>', s, count=1, flags=re.S)
     s = re.sub(r'(<h2>Nearby Areas We Serve</h2><div class="pp-pills">).*?(<a class="pp-pill pp-pill--alt")',
                lambda m: m.group(1) + pills(d['near']) + m.group(2), s, count=1, flags=re.S)
+    for svc_ in ('deep', 'move-out'):   # Murray template links to Murray's own service pages; reset to the SLC pages
+        s = s.replace(f'/{svc_}-cleaning-murray-ut"><h3>', f'/{svc_}-cleaning-salt-lake-city"><h3>')
+    s = s.replace('cleaning in Murray</h3>', 'cleaning</h3>')
     s = s.replace('house-cleaning-murray-ut', 'house-cleaning-' + slug).replace('Murray', d['city'])
     s = set_faqs(s, [(cost[0].replace('Murray', d['city']), cost[1])] + d['faqs'] + [VETTED])
     assert 'Murray' not in s and 'Central-valley' not in s and 'Fashion Place' not in s, key
