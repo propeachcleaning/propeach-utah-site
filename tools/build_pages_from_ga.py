@@ -249,7 +249,7 @@ def build_page(name, shell_src):
 
 def main(names=None):
     LEGACY.mkdir(exist_ok=True)
-    pages = sorted(p.name for p in ROOT.glob('*.html') if p.name not in ('index.html',) and not p.name.startswith('_'))
+    pages = sorted(p.name for p in ROOT.glob('*.html') if p.name not in ('index.html', 'booknow.html') and not p.name.startswith('_'))
     for n in pages:                                       # snapshot hand-built pages once (content source)
         if not (LEGACY / n).exists():
             shutil.copy(ROOT / n, LEGACY / n)

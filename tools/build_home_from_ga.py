@@ -94,7 +94,7 @@ LINKS = {'/': '/', '/services/residential': '/services-residential', '/services/
          '/house-cleaning-cost-atlanta': '/house-cleaning-cost-salt-lake-city', '/house-cleaning-atlanta': '/house-cleaning-salt-lake-city',
          '/deep-cleaning-atlanta': '/deep-cleaning-salt-lake-city', '/move-out-cleaning-atlanta': '/move-out-cleaning-salt-lake-city',
          '/move-out-cleaning-cost-atlanta': '/move-out-cleaning-cost-salt-lake-city', '/airbnb-cleaning-atlanta': '/airbnb-cleaning-salt-lake-city',
-         '/airbnb-cleaning-cost-atlanta': '/airbnb-cleaning-salt-lake-city', '/booknow': BK + '/booknow', '/login': BK + '/login',
+         '/airbnb-cleaning-cost-atlanta': '/airbnb-cleaning-salt-lake-city', '/booknow': '/booknow', '/login': BK + '/login',
          '/contact': '#contact', '/limpieza-de-casas-atlanta': '/limpieza-de-casas-salt-lake-city'}
 
 FORM_JS = '''<script>
@@ -104,8 +104,9 @@ document.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=
  e.preventDefault();e.stopImmediatePropagation();
  if(!f.checkValidity()){f.reportValidity();return;}
  var p=new URLSearchParams();p.append('form',f.getAttribute('data-name')||f.id||'form');p.append('page',location.href);
- p.append('site','utah.propeachcleaning.com');p.append('submitted_at',new Date().toISOString());
+ p.append('site','utah');p.append('submitted_at',new Date().toISOString());
  new FormData(f).forEach(function(v,k){if(!/turnstile|recaptcha/i.test(k))p.append(k,v);});
+ var lc=p.get('Last Professional Cleaning'),nt=p.get('Field 2');if(lc||nt)p.append('Message',[lc?'Last professional cleaning: '+lc:'',nt||''].filter(Boolean).join(' · '));
  var wrap=f.closest('.w-form'),done=wrap&&wrap.querySelector('.w-form-done'),fail=wrap&&wrap.querySelector('.w-form-fail');
  var btn=f.querySelector('[type=submit]');if(btn)btn.disabled=true;
  fetch(HOOK,{method:'POST',mode:'no-cors',body:p}).then(function(){
@@ -113,7 +114,10 @@ document.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=
    var pop=f.closest('#main-popup,#discount-popup');
    if(pop){try{localStorage.setItem('ppPopupCompleted','true');localStorage.removeItem('ppPopupSuppressedUntil');}catch(x){}
      setTimeout(function(){pop.style.display='none';document.body.style.overflow='';},5000);}
-   if(f.id==='quick-quote-form'){if(done)done.textContent='Got it! Taking you to see your exact price and open times…';setTimeout(function(){location.href='https://propeachcleaning.bookingkoala.com/booknow';},1800);}
+   if(f.id==='quick-quote-form'){try{var g=function(n){var el=f.querySelector('[name="'+n+'"]');return el?el.value:'';};sessionStorage.setItem('ppqq',JSON.stringify({n:g('Name'),p:g('Phone'),z:g('Zip-Code')||g('Zip Code')}));}catch(x){}
+     if(done)done.textContent='Got it! One more step for your exact price…';setTimeout(function(){location.href='/booknow';},1500);}
+   if(f.id==='wf-form-Book-Now-Page'){try{sessionStorage.removeItem('ppqq');}catch(x){}
+     if(done){var a=document.createElement('p');a.style.marginTop='12px';a.innerHTML='Prefer to pick your time now? <a href="https://propeachcleaning.bookingkoala.com/booknow" target="_blank" rel="noopener" style="text-decoration:underline">Book instantly online</a>.';done.appendChild(a);}}
  }).catch(function(){if(fail)fail.style.display='block';if(btn)btn.disabled=false;});
 },true);})();
 </script>''' % HOOK
@@ -245,5 +249,28 @@ def build():
     left = {k: len(re.findall(k, body)) for k in ['Atlanta', '470', 'atlanta', 'Savannah']}
     print('index.html', len(out), 'bytes; remaining mentions:', left)
 
+BOOKNOW_META = f'''<title>Book House Cleaning in Salt Lake City | Pro Peach Cleaning</title>
+<meta name="description" content="Get your Salt Lake City house cleaning quote in about 30 seconds. Tell us about your home and we'll text your exact price within 20 minutes, 8 AM to 8 PM MT."/>
+<link rel="canonical" href="https://utah.propeachcleaning.com/booknow"/>
+<meta property="og:title" content="Book House Cleaning in Salt Lake City | Pro Peach Cleaning"/>
+<meta property="og:description" content="Tell us about your home and we'll text your exact price within 20 minutes."/>
+<meta property="og:url" content="https://utah.propeachcleaning.com/booknow"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://utah.propeachcleaning.com{IMG["hero"]}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="/favicon.png"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>'''
+
+def booknow_hook(body):
+    body = re.sub(r'BOOK YOUR HOUSE CLEANING IN ATLANTA, GA', 'BOOK YOUR HOUSE CLEANING IN SALT LAKE CITY, UT', body, flags=re.I)
+    return body.replace('8 AM–8 PM)', '8 AM–8 PM MT)')
+
+def build_booknow():
+    out = convert(get(GA + '/booknow').decode('utf-8'), BOOKNOW_META, booknow_hook)
+    (ROOT / 'booknow.html').write_text(out)
+    body = out[out.find('<body'):]
+    print('booknow.html', len(out), 'bytes; remaining mentions:', {k: len(re.findall(k, body)) for k in ['Atlanta', '470', 'Savannah', 'ET ']})
+
 if __name__ == '__main__':
     build()
+    build_booknow()
