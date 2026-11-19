@@ -60,20 +60,23 @@ def render(site):
                  ('' if n == 'Monthly' else f', about {money(round(b*(1-d)*v/12))} a month') + '.' for n, d, v in plans]),
          ('p', 'Weekly costs more per month than every other week because you get twice the visits, but every single visit costs less.'),
          ('h2', 'New Customers: 50% Off Your First Cleaning'),
-         ('p', f'Sign up for recurring service and your first cleaning is 50% off. On a home under 1,000 sq ft, that first clean is {money(74.5)} instead of {money(149)}, then every other week visits are {money(round(149*.85,2))}.'),
+         ('p', f'Commit to at least 3 recurring cleanings and your first cleaning is 50% off. On a home under 1,000 sq ft, that first clean is {money(74.5)} instead of {money(149)}, then every other week visits are {money(round(149*.85,2))}.'),
          ('h2', 'Standard Prices by Home Size'),
          ('ul', [f'{t}: from {money(p)}' for t, p in TIERS] + ['3,000 sq ft and up: quoted for your home']),
          ('p', f'Deep cleaning adds $50 to these prices. See every detail on our [house cleaning cost guide]({s["cost"]}).'),
          ('h2', 'What Can Change Your Price'),
-         ('ul', ['Pets: $15 per pet', 'Condition: a home that has not been cleaned in a while takes longer, so we ask a few quick questions before we quote',
+         ('ul', ['Pets: $15 per pet', 'Extras: inside the fridge ($75), inside the oven ($50), inside cabinets ($40), dishes ($20) or laundry ($25)',
+                 'Same-day booking: adds $50', 'Condition: a home that has not been cleaned in a while takes longer, so we ask a few quick questions before we quote',
                  'Paid parking at your building may be added to your total']),
+         ('h2', 'Changing or Ending a Plan'),
+         ('p', 'You can move between weekly, every other week and monthly as your needs change. Reschedules and cancellations need at least 24 hours notice; changes with less notice carry a fee of 50% of the cleaning price. Tips are always optional.'),
          ('h2', 'Which Schedule Is Right for You?'),
          ('p', f'Kids or two or more pets usually call for weekly. Two working adults with maybe one pet do well every other week. Living alone and tidy? Monthly or every other week works. With {s["climate"]}, many {A} clients also add a seasonal [deep clean]({s["deep"]}).'),
          ('h2', 'Recurring Cleaning Near You'),
          ('p', f'We clean homes across {R}, including {citylinks}.')],
         [(f'How much does biweekly house cleaning cost in {A}?', f'Every other week cleaning saves 15% on every visit. For a home under 1,000 sq ft, that is {money(round(149*.85,2))} a visit, or about {money(round(149*.85*26/12))} a month.'),
          ('Is weekly cleaning cheaper than biweekly?', 'Per visit, yes: weekly saves 20% and every other week saves 15%. Per month, weekly costs more because you get twice as many visits.'),
-         ('How does the 50% off first cleaning offer work?', 'New customers who sign up for recurring service get 50% off their first cleaning. For a home under 1,000 sq ft, that first clean is $74.50.'),
+         ('How does the 50% off first cleaning offer work?', 'New customers who commit to at least 3 recurring cleanings get 50% off their first cleaning. For a home under 1,000 sq ft, that first clean is $74.50.'),
          ('Can I change my schedule later?', 'Yes. You can move between weekly, every other week and monthly as your needs change. Just let us know before your next cleaning.')])
 
     # 2. How much to tip
@@ -94,6 +97,11 @@ def render(site):
                  'You booked on short notice', 'The team worked through pet hair or a long list of extras',
                  'Your recurring team keeps going above and beyond', 'It is the holidays']),
          ('p', f'Not happy with something? Skip the tip guilt and tell us. Call or text {PH} within 24 hours of your cleaning and we will come back and touch it up for free.'),
+         ('h2', 'How Tipping Works With Pro Peach'),
+         ('ul', ['Tips are optional. Your cleaning price does not include a tip, and a tip is never required.',
+                 'Add it when you book. Our booking form has a tip option, so you can tip with your card or another digital payment.',
+                 'It goes to your cleaners. 100% of every tip goes to the cleaners who cleaned your home, split across the team.',
+                 'Tip any way you like: when you book, after the clean, or in cash to your cleaner.']),
          ('h2', 'Do You Have to Tip House Cleaners?'),
          ('p', 'No. Tipping is a personal choice. Every Pro Peach cleaner is interviewed and background-checked and follows the same detailed checklist on every visit, whether or not you tip.'),
          ('p', 'Want to say thanks another way? A Google review that mentions your cleaner by name means a lot to the team.'),
@@ -102,7 +110,8 @@ def render(site):
         [('How much should I tip a house cleaner?', 'Many customers tip 15% to 20% of the cleaning price, or $10 to $20 per cleaner for a standard clean. It is always optional.'),
          ('Should I tip more for a deep clean or move-out clean?', 'Many customers do, since those cleanings take longer. 15% to 20% of the price, or $20 to $40 per cleaner, is common.'),
          ('Do I need to tip every time for recurring cleaning?', 'No. Many recurring customers tip a smaller amount per visit, or skip it and give a holiday tip of about one cleaning.'),
-         ('Is tipping required with Pro Peach Cleaning?', 'No. Your price does not include a tip and a tip is never required.')])
+         ('Is tipping required with Pro Peach Cleaning?', 'No. Your price does not include a tip and a tip is never required.'),
+         ('Do the cleaners get the tip?', 'Yes. 100% of every tip goes to the cleaners who cleaned your home, split across the team.')])
 
     # 3. Do I need to be home
     P['do-i-need-to-be-home-for-house-cleaners' + ('' if site == 'GA' else '-utah')] = (
@@ -127,6 +136,9 @@ def render(site):
                  'Leave fresh sheets out if you would like the beds made with clean linens',
                  'Point out where the team can park']),
          ('p', f'More tips in our guide to [preparing for house cleaners]({s["prep"]}).'),
+         ('h2', 'What If the Team Cannot Get In?'),
+         ('p', 'Please double-check your access details. If the team arrives at the scheduled time and cannot get in, for example nobody answers, the code does not work or the building turns them away, it is treated as a no-show and the full cleaning price is charged.'),
+         ('p', f'Plans changed? Reschedule or cancel at least 24 hours before your appointment to avoid a fee. Changes with less than 24 hours notice carry a fee of 50% of the cleaning price. Call or text {PH} anytime.'),
          ('h2', 'Rather Be Home? That Works Too'),
          ('p', 'It is fine to be home. Staying out of the room being cleaned helps things move faster. Working from home? Tell the team which room to clean first, or which one to leave alone during your calls.'),
          ('h2', 'Cleaning Near You'),
@@ -134,6 +146,7 @@ def render(site):
         [('Do I need to be home during the cleaning?', 'No. Many clients give us a key, lockbox, door code, smart lock or gate access. Just share the instructions when you book.'),
          ('How do I let cleaners into my condo building?', 'Tell your front desk or concierge a cleaning team is coming, leave a key or authorization, and ask about vendor check-in or service elevator rules.'),
          ('What should I do with my pets?', 'Pets are welcome, but please keep them secured in a closed room or crate during the clean and tell us which room to skip.'),
+         ('What happens if the cleaners cannot get in?', 'It is treated as a no-show and the full cleaning price is charged, so double-check codes, keys and building access before cleaning day.'),
          ('Are your cleaners background-checked?', 'Yes. Every Pro Peach cleaner is interviewed and background-checked, and Pro Peach Cleaning is licensed, bonded and insured.')])
 
     # 4. Airbnb cleaning fee (Utah only; GA already has /airbnb-cleaning-cost-atlanta)
@@ -156,7 +169,7 @@ def render(site):
              ('p', 'From December through spring, rentals near Little and Big Cottonwood Canyons book back to back. Ski boots, wet gear and road salt mean extra floor and entryway work, so plan a seasonal deep clean between busy stretches.'),
              ('h2', 'What Can Change Your Price'),
              ('ul', ['Condition: a rental left in rough shape takes longer', 'Pets: $15 per pet',
-                     'Clutter: more items to move means more time', 'Paid parking at the property may be added']),
+                     'Clutter: more items to move means more time', 'Same-day bookings: add $50', 'Paid parking at the property may be added']),
              ('h2', 'Airbnb Cleaning Near You'),
              ('p', f'We turn over rentals across the valley, including {acity}. See our [Airbnb cleaning service]({s["airbnb"]}).')],
             [('How much does Airbnb cleaning cost in Salt Lake City?', 'Turnovers start at $149 for rentals under 1,000 square feet and go up about $30 for every additional 250 square feet.'),
