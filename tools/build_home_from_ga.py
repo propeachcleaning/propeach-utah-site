@@ -111,6 +111,7 @@ document.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=
    var pop=f.closest('#main-popup,#discount-popup');
    if(pop){try{localStorage.setItem('ppPopupCompleted','true');localStorage.removeItem('ppPopupSuppressedUntil');}catch(x){}
      setTimeout(function(){pop.style.display='none';document.body.style.overflow='';},5000);}
+   if(f.id==='quick-quote-form'){if(done)done.textContent='Got it! Taking you to see your exact price and open times…';setTimeout(function(){location.href='https://propeachcleaning.bookingkoala.com/booknow';},1800);}
  }).catch(function(){if(fail)fail.style.display='block';if(btn)btn.disabled=false;});
 },true);})();
 </script>''' % HOOK
