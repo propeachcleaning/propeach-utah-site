@@ -83,7 +83,7 @@ UT_FACTS = ('<section class="pp-facts" aria-labelledby="pp-facts-h"><h2 id="pp-f
     '<dt>Phone and text</dt><dd><a href="tel:+13852179244">(385) 217-9244</a></dd>'
     '<dt>Email</dt><dd><a href="mailto:clean@propeachcleaning.com">clean@propeachcleaning.com</a></dd>'
     '<dt>Pricing</dt><dd>Standard cleaning from $149. Deep cleaning from $199. Move in or move out cleaning from $249. Commercial and post construction are quoted per job.</dd>'
-    '<dt>Reviews</dt><dd>Our Atlanta team is rated 4.9 stars on Google with 100+ reviews. See our <a href="https://maps.google.com/?cid=8996771839070111800" target="_blank" rel="noopener">Salt Lake City reviews on Google</a>.</dd>'
+    '<dt>Reviews</dt><dd>Our Atlanta team is rated 4.8 stars on Google with 100+ reviews. See our <a href="https://maps.google.com/?cid=8996771839070111800" target="_blank" rel="noopener">Salt Lake City reviews on Google</a>.</dd>'
     '<dt>Trust</dt><dd>Licensed, bonded and insured. Every cleaner is interviewed and passes a background check before their first job.</dd>'
     '<dt>Ownership</dt><dd>Women, veteran and Latino owned. Serving customers since October 2024.</dd>'
     '<dt>Please note</dt><dd>We come to you. No walk-ins or customer visits.</dd></dl></section>')
@@ -204,7 +204,7 @@ def convert(src, meta, page_hook=None, extra_head=''):
         body = page_hook(body)
 
     # Google reviews -> Utah profile (honest badge text); Atlanta card stays Atlanta (protected)
-    body = body.replace(GA_CID, UT_CID).replace('4.9 from 100+ Google reviews', 'Salt Lake City reviews on Google')
+    body = body.replace(GA_CID, UT_CID).replace('4.8 from 100+ Google reviews', 'Salt Lake City reviews on Google').replace('4.9 from 100+ Google reviews', 'Salt Lake City reviews on Google')
 
     # nav: cross-link points back to Georgia
     body = re.sub(r'<a([^>]*?)href="https://utah\.propeachcleaning\.com/"([^>]*)>Utah</a>', r'<a\1href="' + GA + r'/"\2>Georgia</a>', body)
